@@ -13,7 +13,6 @@ namespace CompetencesApp
         public Document()
         {
             // Petit test pour synchro github
-            //Test Gael
         }
     }
 }
