@@ -11,8 +11,9 @@ namespace CompetencesApp
 
         public string _id { get; set; }
         public bool isValidated { get; set; }
-
         public string competenceId { get; set; }
-
+        public float userPercent { get; set; }
+        public float teacherPercent { get; set; }
+        public List<Document> doclist { get; set; }
     }
 }

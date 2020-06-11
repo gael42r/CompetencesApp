@@ -23,6 +23,10 @@ namespace CompetencesApp
             InitializeComponent();
             this.studentuser = studentuser;
 
+            //Affichage Mes Competences
+            HideProfile();
+            ShowMesCompetences();
+
             //Affichage attributs user
 
             labelPrenom.Text = studentuser.firstName;
@@ -51,38 +55,49 @@ namespace CompetencesApp
 
         private void buttonProfile_Click(object sender, EventArgs e)
         {
-            //Affichage
+            ShowProfile();
+            HideMesCompetences();
         }
 
         private void buttonMyCompetences_Click(object sender, EventArgs e)
         {
-            //Affichage
+            HideProfile();
+            ShowMesCompetences();
         }
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
-            //Affichage
+            HideProfile();
+            HideMesCompetences();
         }
 
-        private void buttonValider_Click(object sender, EventArgs e)
+        private async void buttonValider_Click(object sender, EventArgs e)
         {
             if (listBoxCompetences.SelectedIndex == -1) return;
 
             var competence = competences[listBoxCompetences.SelectedIndex];
             var userComp = studentuser.comps.Find((comp) => comp.competenceId == competence._id);
             
-            if(userComp != null)
+            if(userComp == null)
             {
-                label2.Text = "UserCompetence existe deja";
-                // Tu crée fenetre avec en param un obj UserCOmpetence et un obj Competence
-            }
-            else
-            {
-                label2.Text = "On cree une user competence";
+                labelError.Text = "On cree une user competence";
+                userComp = await HttpRequests.PostCompetenceId(competences[listBoxCompetences.SelectedIndex]._id, studentuser._id);
+                studentuser.comps.Add(userComp); //faire pareil pour preuves
                 //users/:id/competences   et tu fournis competenceId -> competences[listBoxCompetences.SelectedIndex]._id";
                 // Et je te renvoi un obj UserCompetence
                 // Tu crée fenetre avec en param un obj UserCOmpetence et un obj Competence
             }
+            userComp.doclist = await HttpRequests.GetDocumentsByUserCompetenceId(userComp._id);
+
+
+
+            //
+            competence.ressources = await HttpRequests.GetResourceByCompetenceId(competence._id);
+            //
+
+
+            Form3 formcompetence = new Form3(competence, userComp, this.studentuser);
+            formcompetence.ShowDialog();
         }
 
         private async void comboBoxPromotion_SelectedIndexChanged(object sender, EventArgs e)
@@ -116,18 +131,16 @@ namespace CompetencesApp
 
                 foreach (Competence competenceblock in response)
                 {
-                    var userComp = studentuser.comps.Find((comp) => comp.competenceId == competenceblock._id);
+                    /*var userComp = studentuser.comps.Find((comp) => comp.competenceId == competenceblock._id);
                     if (userComp != null)
                     {
-                        if (userComp.isValidated)
-                        {
-                            listBoxCompetences.Items.Add("Competence terminée : " + competenceblock.name);
-                        }
+                        
                     }
                     else
                     {
                         listBoxCompetences.Items.Add(competenceblock.name);
-                    }
+                    }*/
+                    listBoxCompetences.Items.Add(competenceblock.name);
                 }
 
             }
@@ -144,6 +157,52 @@ namespace CompetencesApp
         //{
         //    System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
         //    ToolTip1.SetToolTip(buttonValider, "test");
+
         //}
+
+
+        private void ShowProfile()
+        {
+            buttonDeconnection.Show();
+            labelStatut.Show();
+        }
+        private void HideProfile()
+        {
+            buttonDeconnection.Hide();
+            labelStatut.Hide();
+        }
+
+        private void ShowMesCompetences()
+        {
+            labelPromotion.Show();
+            comboBoxPromotion.Show();
+
+            labelCompetencesBlocks.Show();
+            listBoxCompetencesBlocks.Show();
+
+            labelCompetences.Show();
+            listBoxCompetences.Show();
+
+            buttonValider.Show();
+        }
+
+        private void HideMesCompetences()
+        {
+            labelPromotion.Hide();
+            comboBoxPromotion.Hide();
+
+            labelCompetencesBlocks.Hide();
+            listBoxCompetencesBlocks.Hide();
+
+            labelCompetences.Hide();
+            listBoxCompetences.Hide();
+
+            buttonValider.Hide();
+        }
+
+        private void buttonDeconnection_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
 }

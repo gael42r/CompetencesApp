@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace CompetencesApp
 {
@@ -65,6 +67,20 @@ namespace CompetencesApp
             List<UserCompetence> other_list = new List<UserCompetence>();
             return other_list;
         }
+        public static async Task<List<Competence>> GetAllTeacherCompetenceById(string id)
+        {
+            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/users/" + id + "/teachercompetences");
+            if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
+            {
+                var content = httpResponseMessage.Content;
+                var list = await content.ReadAsAsync<List<Competence>>();
+
+
+                return list;
+            }
+            List<Competence> other_list = new List<Competence>();
+            return other_list;
+        }
 
         public static async Task<Competence> GetCompetenceById(string id)
         {
@@ -105,6 +121,19 @@ namespace CompetencesApp
             return other_list;
         }
 
+        public static async Task<List<UserCompetenceTeacher>> GetUserCompetenceTeacherById(string id)
+        {
+            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/competences/" + id + "/usercompetences");
+            if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
+            {
+                var content = httpResponseMessage.Content;
+                var list = await content.ReadAsAsync<List<UserCompetenceTeacher>>();
+                return list;
+            }
+            List<UserCompetenceTeacher> other_list = new List<UserCompetenceTeacher>();
+            return other_list;
+        }
+
 
         //public static async Task<User> UserLogin(string username, string password)
         //{
@@ -124,36 +153,253 @@ namespace CompetencesApp
         //    return user;
         //}
 
-        public static async Task<User> UserLogin(string username, string password)
-        {
-            List<string> list = new List<string>();
-            list.Add(username);
-            list.Add(password);
+        //public static async Task<User> UserLogin(string username, string password)
+        //{
+        //    List<string> list = new List<string>();
+        //    list.Add(username);
+        //    list.Add(password);
 
-            HttpResponseMessage response = await client.PostAsJsonAsync("http://91.171.37.70:16384/login", list);
+        //    HttpResponseMessage response = await client.PostAsJsonAsync("http://91.171.37.70:16384/login", list);
+        //    response.EnsureSuccessStatusCode();
+
+        //    //Console.WriteLine(response.Content);
+
+        //    var user = await response.Content.ReadAsAsync<User>();
+
+        //    if (!user.isAdmin)
+        //    {
+        //        var userpromoslist = await HttpRequests.GetUsersPromotionById(user._id);
+        //        user.promos = userpromoslist;
+        //    }
+        //    else
+        //    {
+        //        var userpromoslist = await HttpRequests.GetPromotions();
+        //        user.promos = userpromoslist;
+        //    }
+
+        //    var usercompetenceslist = await HttpRequests.GetUsersCompetencesById(user._id);
+
+
+
+        //    user.comps = usercompetenceslist;
+        //    return user;
+        //}
+
+        public static async Task<dynamic> UserLogin(string username, string password)
+        {
+
+            string payload = JsonConvert.SerializeObject(new
+            {
+                username = username,
+                password = password
+            });
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/login");
+            var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            request.Content = stringContent;
+
+
+            var response = await client
+                .SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
             response.EnsureSuccessStatusCode();
 
-            //Console.WriteLine(response.Content);
+            // 404 
 
-            var user = await response.Content.ReadAsAsync<User>();
 
-            if (!user.isAdmin)
+            var userJObject = await response.Content.ReadAsAsync<JObject>();
+            //Console.WriteLine(((bool)user.GetValue("isAdmin"))?"VRAI":"FAUX") ;
+
+            var isAdmin   = false;
+            var isTeacher = false;
+            var competence = new List<string>();
+            try
             {
-                var userpromoslist = await HttpRequests.GetUsersPromotionById(user._id);
-                user.promos = userpromoslist;
+                isAdmin = (bool)userJObject.GetValue("isAdmin");
+            }
+            catch(Exception e)
+            {
+                isTeacher = (bool)userJObject.GetValue("isTeacher");
+            }
+
+
+            if (isAdmin)
+            {
+                //var userpromoslist = await HttpRequests.GetPromotions();
+                //user.promos = userpromoslist;
+                return new User(); // A enlever fin test
+            }
+            else if (isTeacher)
+            {
+                var user = userJObject.ToObject<Teacher>();
+                user.teacherCompetence = await GetAllTeacherCompetenceById(user._id);
+
+
+                return user;
             }
             else
             {
-                var userpromoslist = await HttpRequests.GetPromotions();
+                var user = userJObject.ToObject<User>();
+
+                var userpromoslist = await HttpRequests.GetUsersPromotionById(user._id);
                 user.promos = userpromoslist;
+                var usercompetenceslist = await HttpRequests.GetUsersCompetencesById(user._id);
+                user.comps = usercompetenceslist;
+
+                return user;
             }
 
-            var usercompetenceslist = await HttpRequests.GetUsersCompetencesById(user._id);
+        }
 
-            
+        public static async Task<UserCompetence> PostCompetenceId(string competenceid, string userid)
+        {
 
-            user.comps = usercompetenceslist;
-            return user;
+            string payload = JsonConvert.SerializeObject(new
+            {
+                competenceId = competenceid
+            });
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/users/" + userid + "/competences");
+            var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            request.Content = stringContent;
+
+
+            var response = await client
+                .SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+
+
+            var usercomp = await response.Content.ReadAsAsync<UserCompetence>();
+            return usercomp;
+        }
+
+        public static async Task<List<Document>> GetDocumentsByUserCompetenceId(string id)
+        {
+            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/usercompetences/" + id + "/documents");
+            if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
+            {
+                var content = httpResponseMessage.Content;
+                var list = await content.ReadAsAsync<List<Document>>();
+                return list;
+            }
+            List<Document> other_list = new List<Document>();
+            return other_list;
+        }
+
+        //PatchUserComp
+        public static async Task<UserCompetence> PatchUserCompetence(UserCompetence usercompetence,bool isTeacher)
+        {
+
+            string payload;
+            if (isTeacher)
+            {
+                payload = JsonConvert.SerializeObject(new
+                {
+                    isValidated = usercompetence.isValidated,
+                    teacherPercent = usercompetence.teacherPercent
+                });
+            }
+            else
+            {
+                payload = JsonConvert.SerializeObject(new
+                {
+                    userPercent = usercompetence.userPercent
+                });
+            }
+            var request = new HttpRequestMessage(HttpMethod.Put, "http://91.171.37.70:16384/usercompetences/" + usercompetence._id);
+            var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            request.Content = stringContent;
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+
+
+            var usercomp = await response.Content.ReadAsAsync<UserCompetence>();
+            return usercomp;
+        }
+
+        public static async Task<Document> PostDocument(string usercompetenceid, string link)
+        {
+
+            string payload = JsonConvert.SerializeObject(new
+            {
+                link = link
+            });
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/usercompetences/" + usercompetenceid + "/documents");
+            var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            request.Content = stringContent;
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+
+
+            var doc = await response.Content.ReadAsAsync<Document>();
+            return doc;
+        }
+
+        public static async void DeleteDocument(string usercompetenceid, string documentid)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Delete, "http://91.171.37.70:16384/usercompetences/" + usercompetenceid + "/documents/" + documentid);
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+
+
+            //var doc = await response.Content.ReadAsAsync<Document>();
+            //return doc;
+        }
+
+        public static async Task<List<Resource>> GetResourceByCompetenceId(string id)
+        {
+            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/competences/" + id + "/ressources");
+            if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
+            {
+                var content = httpResponseMessage.Content;
+                var reslist = await content.ReadAsAsync<List<Resource>>();
+                return reslist;
+            }
+            List<Resource> other_reslist = new List<Resource>();
+            return other_reslist;
+        }
+
+        public static async Task<Resource> PostRessourceByCompetenceId(string compid, string title, string content)
+        {
+
+            string payload = JsonConvert.SerializeObject(new
+            {
+                title = title,
+                content = content,
+            });
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/competences/" + compid + "/ressources");
+            var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            request.Content = stringContent;
+
+
+            var response = await client
+                .SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+
+
+            var resource = await response.Content.ReadAsAsync<Resource>();
+            return resource;
+        }
+
+        public static async Task<bool> DeleteRessource(string competenceid, string ressourceid)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Delete, "http://91.171.37.70:16384/competences/" + competenceid + "/ressources/" + ressourceid);
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            try
+            {
+                response.EnsureSuccessStatusCode();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace CompetencesApp
 {
-    public class Ressource
+    public class Document
     {
+        public string _id { get; set; }
+        public string link { get; set; }
+        public Document()
+        {
 
+        }
     }
 }

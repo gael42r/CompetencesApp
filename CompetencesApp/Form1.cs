@@ -28,8 +28,33 @@ namespace CompetencesApp
         {
             var userlogin = await HttpRequests.UserLogin(textBoxUser.Text, textBoxPassword.Text);
             this.Hide();
+            Console.WriteLine( userlogin.GetType());
 
-            if (!userlogin.isAdmin)
+            if (userlogin.isAdmin)
+            {
+                //On lance la form admin
+                Form22 adminform = new Form22(userlogin);
+                this.Close();
+                try
+                {
+                    adminform.ShowDialog();
+                }
+                catch { 
+                
+                }
+            }
+            else if (userlogin is Teacher)
+            {
+                Form23 studentform = new Form23(userlogin);
+                this.Close();
+                try
+                {
+                    studentform.ShowDialog();
+                }
+                catch { }
+
+            }
+            else
             {
                 //On lance la form élève
                 Form21 studentform = new Form21(userlogin);
@@ -40,21 +65,6 @@ namespace CompetencesApp
                 }
                 catch { }
             }
-            else
-            {
-                //On lance la form admin
-                Form22 adminform = new Form22(userlogin);
-                this.Close();
-                try
-                {
-                    adminform.ShowDialog();
-                }
-                catch { }
-            }
-
-            
-            
-
         }
     }
 }

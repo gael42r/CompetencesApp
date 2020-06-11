@@ -39,7 +39,6 @@
             this.labelPromotion = new System.Windows.Forms.Label();
             this.comboBoxPromotion = new System.Windows.Forms.ComboBox();
             this.panelStudent = new System.Windows.Forms.Panel();
-            this.buttonSettings = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonProfile = new System.Windows.Forms.Button();
             this.buttonMyCompetences = new System.Windows.Forms.Button();
@@ -48,8 +47,10 @@
             this.labelNbCompVal = new System.Windows.Forms.Label();
             this.listBoxCompetences = new System.Windows.Forms.ListBox();
             this.listBoxCompetencesBlocks = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelCompetencesBlocks = new System.Windows.Forms.Label();
+            this.labelError = new System.Windows.Forms.Label();
+            this.buttonDeconnection = new System.Windows.Forms.Button();
+            this.labelStatut = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panelStudent.SuspendLayout();
             this.SuspendLayout();
@@ -72,9 +73,9 @@
             this.buttonValider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonValider.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonValider.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.buttonValider.Location = new System.Drawing.Point(572, 540);
+            this.buttonValider.Location = new System.Drawing.Point(150, 540);
             this.buttonValider.Name = "buttonValider";
-            this.buttonValider.Size = new System.Drawing.Size(405, 40);
+            this.buttonValider.Size = new System.Drawing.Size(827, 40);
             this.buttonValider.TabIndex = 23;
             this.buttonValider.Text = "Valider";
             this.buttonValider.UseVisualStyleBackColor = true;
@@ -180,7 +181,6 @@
             // 
             this.panelStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.panelStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelStudent.Controls.Add(this.buttonSettings);
             this.panelStudent.Controls.Add(this.panel1);
             this.panelStudent.Controls.Add(this.buttonProfile);
             this.panelStudent.Controls.Add(this.buttonMyCompetences);
@@ -190,25 +190,6 @@
             this.panelStudent.Name = "panelStudent";
             this.panelStudent.Size = new System.Drawing.Size(122, 600);
             this.panelStudent.TabIndex = 18;
-            // 
-            // buttonSettings
-            // 
-            this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSettings.BackColor = System.Drawing.Color.Transparent;
-            this.buttonSettings.FlatAppearance.BorderSize = 0;
-            this.buttonSettings.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.buttonSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSettings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonSettings.ForeColor = System.Drawing.Color.DarkGray;
-            this.buttonSettings.Location = new System.Drawing.Point(0, 520);
-            this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(122, 80);
-            this.buttonSettings.TabIndex = 2;
-            this.buttonSettings.Text = "Paramètres";
-            this.buttonSettings.UseVisualStyleBackColor = false;
-            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
             // 
             // panel1
             // 
@@ -294,60 +275,92 @@
             // 
             // listBoxCompetences
             // 
+            this.listBoxCompetences.BackColor = System.Drawing.Color.DarkGray;
+            this.listBoxCompetences.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxCompetences.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxCompetences.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.listBoxCompetences.ForeColor = System.Drawing.Color.White;
             this.listBoxCompetences.FormattingEnabled = true;
             this.listBoxCompetences.ItemHeight = 17;
             this.listBoxCompetences.Location = new System.Drawing.Point(572, 243);
             this.listBoxCompetences.Name = "listBoxCompetences";
-            this.listBoxCompetences.Size = new System.Drawing.Size(405, 276);
+            this.listBoxCompetences.Size = new System.Drawing.Size(405, 272);
             this.listBoxCompetences.TabIndex = 22;
             // 
             // listBoxCompetencesBlocks
             // 
+            this.listBoxCompetencesBlocks.BackColor = System.Drawing.Color.DarkGray;
+            this.listBoxCompetencesBlocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxCompetencesBlocks.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxCompetencesBlocks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.listBoxCompetencesBlocks.ForeColor = System.Drawing.Color.White;
             this.listBoxCompetencesBlocks.FormattingEnabled = true;
             this.listBoxCompetencesBlocks.ItemHeight = 17;
             this.listBoxCompetencesBlocks.Location = new System.Drawing.Point(150, 243);
             this.listBoxCompetencesBlocks.Name = "listBoxCompetencesBlocks";
-            this.listBoxCompetencesBlocks.Size = new System.Drawing.Size(405, 276);
+            this.listBoxCompetencesBlocks.Size = new System.Drawing.Size(405, 272);
             this.listBoxCompetencesBlocks.TabIndex = 32;
             this.listBoxCompetencesBlocks.SelectedIndexChanged += new System.EventHandler(this.listBoxCompetencesBlocks_SelectedIndexChanged);
             // 
-            // label1
+            // labelCompetencesBlocks
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.label1.Location = new System.Drawing.Point(149, 210);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 30);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Blocs de compétences :";
+            this.labelCompetencesBlocks.AutoSize = true;
+            this.labelCompetencesBlocks.BackColor = System.Drawing.Color.Transparent;
+            this.labelCompetencesBlocks.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCompetencesBlocks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.labelCompetencesBlocks.Location = new System.Drawing.Point(149, 210);
+            this.labelCompetencesBlocks.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCompetencesBlocks.Name = "labelCompetencesBlocks";
+            this.labelCompetencesBlocks.Size = new System.Drawing.Size(240, 30);
+            this.labelCompetencesBlocks.TabIndex = 33;
+            this.labelCompetencesBlocks.Text = "Blocs de compétences :";
             // 
-            // label2
+            // labelError
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.label2.Location = new System.Drawing.Point(149, 540);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 30);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Promotion :";
+            this.labelError.AutoSize = true;
+            this.labelError.BackColor = System.Drawing.Color.Transparent;
+            this.labelError.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError.ForeColor = System.Drawing.Color.Firebrick;
+            this.labelError.Location = new System.Drawing.Point(149, 540);
+            this.labelError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 21);
+            this.labelError.TabIndex = 34;
+            // 
+            // buttonDeconnection
+            // 
+            this.buttonDeconnection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.buttonDeconnection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeconnection.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonDeconnection.ForeColor = System.Drawing.Color.White;
+            this.buttonDeconnection.Location = new System.Drawing.Point(150, 540);
+            this.buttonDeconnection.Name = "buttonDeconnection";
+            this.buttonDeconnection.Size = new System.Drawing.Size(827, 40);
+            this.buttonDeconnection.TabIndex = 35;
+            this.buttonDeconnection.Text = "Déconnexion";
+            this.buttonDeconnection.UseVisualStyleBackColor = false;
+            this.buttonDeconnection.Click += new System.EventHandler(this.buttonDeconnection_Click);
+            // 
+            // labelStatut
+            // 
+            this.labelStatut.AutoSize = true;
+            this.labelStatut.BackColor = System.Drawing.Color.Transparent;
+            this.labelStatut.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStatut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.labelStatut.Location = new System.Drawing.Point(149, 136);
+            this.labelStatut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelStatut.Name = "labelStatut";
+            this.labelStatut.Size = new System.Drawing.Size(173, 30);
+            this.labelStatut.TabIndex = 36;
+            this.labelStatut.Text = "Statut : Etudiant";
             // 
             // Form21
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 600);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelStatut);
+            this.Controls.Add(this.buttonDeconnection);
+            this.Controls.Add(this.labelError);
+            this.Controls.Add(this.labelCompetencesBlocks);
             this.Controls.Add(this.listBoxCompetencesBlocks);
             this.Controls.Add(this.labelNbCompVal);
             this.Controls.Add(this.labelNbComp);
@@ -379,7 +392,6 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonMinimize;
         private System.Windows.Forms.Panel panelStudent;
-        private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonProfile;
         private System.Windows.Forms.Button buttonMyCompetences;
@@ -390,7 +402,9 @@
         private System.Windows.Forms.Label labelNbCompVal;
         private System.Windows.Forms.ListBox listBoxCompetences;
         private System.Windows.Forms.ListBox listBoxCompetencesBlocks;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelCompetencesBlocks;
+        private System.Windows.Forms.Label labelError;
+        private System.Windows.Forms.Button buttonDeconnection;
+        private System.Windows.Forms.Label labelStatut;
     }
 }
