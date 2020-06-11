@@ -208,7 +208,7 @@ namespace CompetencesApp
 
         private async void buttonAdd_Click(object sender, EventArgs e)
         {
-            if(textBoxResource.TextLength != 0 && textBoxDescription.TextLength != 0)
+            if(textBoxResource.TextLength != 0)
             {
                 var resource = await HttpRequests.PostRessourceByCompetenceId(selectedCompetence._id, textBoxResource.Text, textBoxDescription.Text);
                 this.selectedCompetence.ressources.Add(resource);
