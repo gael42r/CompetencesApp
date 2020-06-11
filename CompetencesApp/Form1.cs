@@ -28,9 +28,9 @@ namespace CompetencesApp
         {
             var userlogin = await HttpRequests.UserLogin(textBoxUser.Text, textBoxPassword.Text);
             this.Hide();
-            Console.WriteLine( userlogin.GetType());
 
-            if (userlogin.isAdmin)
+
+            if (userlogin is Admin)
             {
                 //On lance la form admin
                 Form22 adminform = new Form22(userlogin);

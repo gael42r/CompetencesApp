@@ -29,45 +29,38 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form22));
-            this.buttonSignIn = new System.Windows.Forms.Button();
             this.panelStudent = new System.Windows.Forms.Panel();
+            this.buttonUser = new System.Windows.Forms.Button();
+            this.buttonCompetenceBlock = new System.Windows.Forms.Button();
+            this.buttonCompetence = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonPromotion = new System.Windows.Forms.Button();
             this.buttonProfile = new System.Windows.Forms.Button();
             this.buttonMinimize = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelPrenom = new System.Windows.Forms.Label();
             this.labelNom = new System.Windows.Forms.Label();
-            this.labelPromotion = new System.Windows.Forms.Label();
             this.comboBoxPromotion = new System.Windows.Forms.ComboBox();
-            this.buttonResources = new System.Windows.Forms.Button();
-            this.buttonCompetences = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.comboBoxUsers = new System.Windows.Forms.ComboBox();
+            this.comboBoxCompetenceBlock = new System.Windows.Forms.ComboBox();
+            this.labelCombo = new System.Windows.Forms.Label();
+            this.addButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.comboBoxCompetences = new System.Windows.Forms.ComboBox();
             this.panelStudent.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonSignIn
-            // 
-            this.buttonSignIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSignIn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonSignIn.Location = new System.Drawing.Point(697, 540);
-            this.buttonSignIn.Name = "buttonSignIn";
-            this.buttonSignIn.Size = new System.Drawing.Size(260, 40);
-            this.buttonSignIn.TabIndex = 23;
-            this.buttonSignIn.Text = "Valider";
-            this.buttonSignIn.UseVisualStyleBackColor = true;
             // 
             // panelStudent
             // 
             this.panelStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.panelStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelStudent.Controls.Add(this.button2);
-            this.panelStudent.Controls.Add(this.button1);
-            this.panelStudent.Controls.Add(this.buttonResources);
+            this.panelStudent.Controls.Add(this.buttonUser);
+            this.panelStudent.Controls.Add(this.buttonCompetenceBlock);
+            this.panelStudent.Controls.Add(this.buttonCompetence);
             this.panelStudent.Controls.Add(this.panel1);
-            this.panelStudent.Controls.Add(this.buttonCompetences);
+            this.panelStudent.Controls.Add(this.buttonPromotion);
             this.panelStudent.Controls.Add(this.buttonProfile);
             this.panelStudent.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelStudent.Location = new System.Drawing.Point(0, 0);
@@ -76,12 +69,84 @@
             this.panelStudent.Size = new System.Drawing.Size(122, 600);
             this.panelStudent.TabIndex = 18;
             // 
+            // buttonUser
+            // 
+            this.buttonUser.BackColor = System.Drawing.Color.Transparent;
+            this.buttonUser.FlatAppearance.BorderSize = 0;
+            this.buttonUser.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.buttonUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonUser.ForeColor = System.Drawing.Color.DarkGray;
+            this.buttonUser.Location = new System.Drawing.Point(0, 207);
+            this.buttonUser.Name = "buttonUser";
+            this.buttonUser.Size = new System.Drawing.Size(122, 80);
+            this.buttonUser.TabIndex = 31;
+            this.buttonUser.Text = "Utilisateurs";
+            this.buttonUser.UseVisualStyleBackColor = false;
+            this.buttonUser.Click += new System.EventHandler(this.buttonUser_Click);
+            // 
+            // buttonCompetenceBlock
+            // 
+            this.buttonCompetenceBlock.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCompetenceBlock.FlatAppearance.BorderSize = 0;
+            this.buttonCompetenceBlock.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.buttonCompetenceBlock.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonCompetenceBlock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonCompetenceBlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCompetenceBlock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonCompetenceBlock.ForeColor = System.Drawing.Color.DarkGray;
+            this.buttonCompetenceBlock.Location = new System.Drawing.Point(0, 302);
+            this.buttonCompetenceBlock.Name = "buttonCompetenceBlock";
+            this.buttonCompetenceBlock.Size = new System.Drawing.Size(122, 80);
+            this.buttonCompetenceBlock.TabIndex = 30;
+            this.buttonCompetenceBlock.Text = "Bloc de compétence";
+            this.buttonCompetenceBlock.UseVisualStyleBackColor = false;
+            this.buttonCompetenceBlock.Click += new System.EventHandler(this.buttonCompetenceBlock_Click);
+            // 
+            // buttonCompetence
+            // 
+            this.buttonCompetence.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCompetence.FlatAppearance.BorderSize = 0;
+            this.buttonCompetence.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.buttonCompetence.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonCompetence.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonCompetence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCompetence.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonCompetence.ForeColor = System.Drawing.Color.DarkGray;
+            this.buttonCompetence.Location = new System.Drawing.Point(0, 410);
+            this.buttonCompetence.Name = "buttonCompetence";
+            this.buttonCompetence.Size = new System.Drawing.Size(122, 80);
+            this.buttonCompetence.TabIndex = 30;
+            this.buttonCompetence.Text = "Compétences";
+            this.buttonCompetence.UseVisualStyleBackColor = false;
+            this.buttonCompetence.Click += new System.EventHandler(this.buttonCompetence_Click);
+            // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(122, 121);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(677, 329);
             this.panel1.TabIndex = 11;
+            // 
+            // buttonPromotion
+            // 
+            this.buttonPromotion.BackColor = System.Drawing.Color.Transparent;
+            this.buttonPromotion.FlatAppearance.BorderSize = 0;
+            this.buttonPromotion.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.buttonPromotion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonPromotion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonPromotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPromotion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonPromotion.ForeColor = System.Drawing.Color.DarkGray;
+            this.buttonPromotion.Location = new System.Drawing.Point(0, 128);
+            this.buttonPromotion.Name = "buttonPromotion";
+            this.buttonPromotion.Size = new System.Drawing.Size(122, 80);
+            this.buttonPromotion.TabIndex = 28;
+            this.buttonPromotion.Text = "Promotion";
+            this.buttonPromotion.UseVisualStyleBackColor = false;
+            this.buttonPromotion.Click += new System.EventHandler(this.buttonPromotion_Click);
             // 
             // buttonProfile
             // 
@@ -174,19 +239,6 @@
             this.labelNom.TabIndex = 28;
             this.labelNom.Text = "NOM";
             // 
-            // labelPromotion
-            // 
-            this.labelPromotion.AutoSize = true;
-            this.labelPromotion.BackColor = System.Drawing.Color.Transparent;
-            this.labelPromotion.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPromotion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelPromotion.Location = new System.Drawing.Point(149, 135);
-            this.labelPromotion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPromotion.Name = "labelPromotion";
-            this.labelPromotion.Size = new System.Drawing.Size(131, 30);
-            this.labelPromotion.TabIndex = 26;
-            this.labelPromotion.Text = "Promotion :";
-            // 
             // comboBoxPromotion
             // 
             this.comboBoxPromotion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -195,85 +247,92 @@
             this.comboBoxPromotion.FormattingEnabled = true;
             this.comboBoxPromotion.Location = new System.Drawing.Point(150, 169);
             this.comboBoxPromotion.Name = "comboBoxPromotion";
-            this.comboBoxPromotion.Size = new System.Drawing.Size(827, 38);
+            this.comboBoxPromotion.Size = new System.Drawing.Size(759, 38);
             this.comboBoxPromotion.TabIndex = 27;
             // 
-            // buttonResources
+            // comboBoxUsers
             // 
-            this.buttonResources.BackColor = System.Drawing.Color.Transparent;
-            this.buttonResources.FlatAppearance.BorderSize = 0;
-            this.buttonResources.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.buttonResources.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonResources.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonResources.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonResources.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonResources.ForeColor = System.Drawing.Color.DarkGray;
-            this.buttonResources.Location = new System.Drawing.Point(0, 197);
-            this.buttonResources.Name = "buttonResources";
-            this.buttonResources.Size = new System.Drawing.Size(122, 80);
-            this.buttonResources.TabIndex = 29;
-            this.buttonResources.Text = "Ressources";
-            this.buttonResources.UseVisualStyleBackColor = false;
+            this.comboBoxUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUsers.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.comboBoxUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.comboBoxUsers.FormattingEnabled = true;
+            this.comboBoxUsers.Location = new System.Drawing.Point(150, 170);
+            this.comboBoxUsers.Name = "comboBoxUsers";
+            this.comboBoxUsers.Size = new System.Drawing.Size(759, 38);
+            this.comboBoxUsers.TabIndex = 28;
             // 
-            // buttonCompetences
+            // comboBoxCompetenceBlock
             // 
-            this.buttonCompetences.BackColor = System.Drawing.Color.Transparent;
-            this.buttonCompetences.FlatAppearance.BorderSize = 0;
-            this.buttonCompetences.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.buttonCompetences.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonCompetences.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonCompetences.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCompetences.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonCompetences.ForeColor = System.Drawing.Color.DarkGray;
-            this.buttonCompetences.Location = new System.Drawing.Point(0, 121);
-            this.buttonCompetences.Name = "buttonCompetences";
-            this.buttonCompetences.Size = new System.Drawing.Size(122, 80);
-            this.buttonCompetences.TabIndex = 28;
-            this.buttonCompetences.Text = "Compétences";
-            this.buttonCompetences.UseVisualStyleBackColor = false;
+            this.comboBoxCompetenceBlock.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCompetenceBlock.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.comboBoxCompetenceBlock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.comboBoxCompetenceBlock.FormattingEnabled = true;
+            this.comboBoxCompetenceBlock.Location = new System.Drawing.Point(150, 170);
+            this.comboBoxCompetenceBlock.Name = "comboBoxCompetenceBlock";
+            this.comboBoxCompetenceBlock.Size = new System.Drawing.Size(759, 38);
+            this.comboBoxCompetenceBlock.TabIndex = 30;
             // 
-            // button1
+            // labelCombo
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.DarkGray;
-            this.button1.Location = new System.Drawing.Point(0, 270);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 80);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Ressources";
-            this.button1.UseVisualStyleBackColor = false;
+            this.labelCombo.AutoSize = true;
+            this.labelCombo.BackColor = System.Drawing.Color.Transparent;
+            this.labelCombo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCombo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.labelCombo.Location = new System.Drawing.Point(149, 135);
+            this.labelCombo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCombo.Name = "labelCombo";
+            this.labelCombo.Size = new System.Drawing.Size(131, 30);
+            this.labelCombo.TabIndex = 26;
+            this.labelCombo.Text = "Promotion :";
             // 
-            // button2
+            // addButton
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.DarkGray;
-            this.button2.Location = new System.Drawing.Point(0, 350);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 80);
-            this.button2.TabIndex = 30;
-            this.button2.Text = "Ressources";
-            this.button2.UseVisualStyleBackColor = false;
+            this.addButton.BackColor = System.Drawing.Color.Lime;
+            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.addButton.Location = new System.Drawing.Point(924, 168);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(33, 40);
+            this.addButton.TabIndex = 34;
+            this.addButton.Text = "+";
+            this.addButton.UseVisualStyleBackColor = false;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.BackColor = System.Drawing.Color.Red;
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.deleteButton.Location = new System.Drawing.Point(967, 168);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(33, 40);
+            this.deleteButton.TabIndex = 35;
+            this.deleteButton.Text = "-";
+            this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // comboBoxCompetences
+            // 
+            this.comboBoxCompetences.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCompetences.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.comboBoxCompetences.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.comboBoxCompetences.FormattingEnabled = true;
+            this.comboBoxCompetences.Location = new System.Drawing.Point(150, 170);
+            this.comboBoxCompetences.Name = "comboBoxCompetences";
+            this.comboBoxCompetences.Size = new System.Drawing.Size(759, 38);
+            this.comboBoxCompetences.TabIndex = 36;
             // 
             // Form22
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.Controls.Add(this.comboBoxCompetences);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.comboBoxCompetenceBlock);
+            this.Controls.Add(this.comboBoxUsers);
             this.Controls.Add(this.comboBoxPromotion);
-            this.Controls.Add(this.labelPromotion);
-            this.Controls.Add(this.buttonSignIn);
+            this.Controls.Add(this.labelCombo);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelStudent);
             this.Name = "Form22";
@@ -287,20 +346,24 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonSignIn;
         private System.Windows.Forms.Panel panelStudent;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonProfile;
         private System.Windows.Forms.Button buttonMinimize;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label labelPromotion;
         private System.Windows.Forms.Label labelPrenom;
         private System.Windows.Forms.Label labelNom;
         private System.Windows.Forms.ComboBox comboBoxPromotion;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button buttonResources;
-        private System.Windows.Forms.Button buttonCompetences;
+        private System.Windows.Forms.Button buttonCompetenceBlock;
+        private System.Windows.Forms.Button buttonCompetence;
+        private System.Windows.Forms.Button buttonPromotion;
+        private System.Windows.Forms.Button buttonUser;
+        private System.Windows.Forms.ComboBox comboBoxUsers;
+        private System.Windows.Forms.ComboBox comboBoxCompetenceBlock;
+        private System.Windows.Forms.Label labelCombo;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.ComboBox comboBoxCompetences;
     }
 }

@@ -12,7 +12,6 @@ namespace CompetencesApp
         public string link { get; set; }
         public Document()
         {
-            // Petit test pour synchro github test 123
         }
     }
 }

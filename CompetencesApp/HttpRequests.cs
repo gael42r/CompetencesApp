@@ -39,7 +39,31 @@ namespace CompetencesApp
             List<User> other_list = new List<User>();
             return other_list;
         }
+        public static async Task<List<Competence>> GetCompetences()
+        {
+            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/competences");
+            if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
+            {
+                var content = httpResponseMessage.Content;
+                var list = await content.ReadAsAsync<List<Competence>>();
+                return list;
+            }
+            List<Competence> other_list = new List<Competence>();
+            return other_list;
+        }
 
+        public static async Task<List<CompetenceBlock>> GetCompetenceBlocks()
+        {
+            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/competenceblocks");
+            if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
+            {
+                var content = httpResponseMessage.Content;
+                var list = await content.ReadAsAsync<List<CompetenceBlock>>();
+                return list;
+            }
+            List<CompetenceBlock> other_list = new List<CompetenceBlock>();
+            return other_list;
+        }
         public static async Task<List<Promotion>> GetUsersPromotionById(string id)
         {
             var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/users/" + id + "/promotions");
@@ -200,7 +224,7 @@ namespace CompetencesApp
 
             var response = await client
                 .SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
-            response.EnsureSuccessStatusCode();
+            response.EnsureSuccessStatusCode(); // Ici il faut que tu check try catch, si ça fail c'est que le user s'est trompé de password ou serv off, faudra check comment on peut afficher ça
 
             // 404 
 
@@ -225,7 +249,14 @@ namespace CompetencesApp
             {
                 //var userpromoslist = await HttpRequests.GetPromotions();
                 //user.promos = userpromoslist;
-                return new User(); // A enlever fin test
+
+                var user = userJObject.ToObject<Admin>();
+                user.competences = await GetCompetences();
+                user.competenceblocks = await GetCompetenceBlocks();
+                user.users = await GetUsers();
+                user.promos = await GetPromotions();
+
+                return user; // A enlever fin test
             }
             else if (isTeacher)
             {
@@ -389,6 +420,77 @@ namespace CompetencesApp
             var request = new HttpRequestMessage(HttpMethod.Delete, "http://91.171.37.70:16384/competences/" + competenceid + "/ressources/" + ressourceid);
 
 
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            try
+            {
+                response.EnsureSuccessStatusCode();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static async Task<bool> DeleteUser(string userId)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Delete, "http://91.171.37.70:16384/users/"+ userId);
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            try
+            {
+                response.EnsureSuccessStatusCode();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static async Task<bool> DeletePromotion(string id)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Delete, "http://91.171.37.70:16384/promotions/" + id);
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            try
+            {
+                response.EnsureSuccessStatusCode();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static async Task<bool> DeleteCompetenceBlock(string id)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Delete, "http://91.171.37.70:16384/competenceblocks/" + id);
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            try
+            {
+                response.EnsureSuccessStatusCode();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+        public static async Task<bool> DeleteCompetence(string id)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Delete, "http://91.171.37.70:16384/competences/" + id);
+
+             
             var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
             try
             {
