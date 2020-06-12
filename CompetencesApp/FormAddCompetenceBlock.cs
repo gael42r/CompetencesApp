@@ -12,8 +12,13 @@ namespace CompetencesApp
 {
     public partial class FormAddCompetenceBlock : Form2
     {
-        public FormAddCompetenceBlock()
+        Admin userAdmin;
+        ComboBox comboBox;
+        public FormAddCompetenceBlock(Admin userAdmin, ComboBox comboBoxModified)
         {
+            this.comboBox = comboBoxModified;
+            this.userAdmin = userAdmin;
+
             InitializeComponent();
         }
 
@@ -25,7 +30,8 @@ namespace CompetencesApp
         private async void buttonAdd_Click(object sender, EventArgs e)
         {
             var competenceblock = await HttpRequests.PostCreateCompetenceBlock(textBoxNom.Text, textBoxDescription.Text);
-
+            this.userAdmin.competenceblocks.Add(competenceblock);
+            this.comboBox.Items.Add(competenceblock.name);
             this.Close();
         }
     }

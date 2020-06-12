@@ -12,8 +12,13 @@ namespace CompetencesApp
 {
     public partial class FormAddCompetence : Form2
     {
-        public FormAddCompetence()
+        Admin userAdmin;
+        ComboBox comboBox;
+        public FormAddCompetence(Admin userAdmin, ComboBox comboBoxModified)
         {
+            this.comboBox = comboBoxModified;
+            this.userAdmin = userAdmin;
+
             InitializeComponent();
         }
 
@@ -24,8 +29,9 @@ namespace CompetencesApp
 
         private async void buttonAdd_Click(object sender, EventArgs e)
         {
-            var competenceblock = await HttpRequests.PostCreateCompetence(textBoxNom.Text, textBoxDescription.Text);
-
+            var competence = await HttpRequests.PostCreateCompetence(textBoxNom.Text, textBoxDescription.Text);
+            this.userAdmin.competences.Add(competence);
+            this.comboBox.Items.Add(competence.name);
             this.Close();
         }
     }

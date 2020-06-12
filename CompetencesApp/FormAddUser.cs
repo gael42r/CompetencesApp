@@ -13,8 +13,13 @@ namespace CompetencesApp
 {
     public partial class FormAddUser : Form2
     {
-        public FormAddUser()
+        Admin userAdmin;
+        ComboBox comboBox;
+        public FormAddUser(Admin userAdmin, ComboBox comboBoxModified)
         {
+            this.comboBox = comboBoxModified;
+            this.userAdmin = userAdmin;
+
             InitializeComponent();
             comboBoxStatut.SelectedIndex = 0;
         }
@@ -48,7 +53,8 @@ namespace CompetencesApp
             }
 
             var user = await HttpRequests.PostCreateUser(textBoxUsername.Text, textBoxPrenom.Text, textBoxNom.Text, textBoxPassword.Text, isAdmin, isTeacher);
-
+            this.userAdmin.users.Add(user);
+            this.comboBox.Items.Add(user.surname + " " + user.firstName);
             this.Close();
         }
     }

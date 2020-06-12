@@ -127,17 +127,19 @@ namespace CompetencesApp
 
         private async void deleteButton_Click(object sender, EventArgs e)
         {
+            int selectedIndex;
+            bool success;
             switch (this.currentWindow)
             {
                 case -1:
                     break;
                 case 0:
-                    int selectedIndex = comboBoxPromotion.SelectedIndex;
+                    selectedIndex = comboBoxPromotion.SelectedIndex;
                     if (selectedIndex == -1) return;
                     var selectedPromotion = this.adminuser.promos[selectedIndex];
                     if (selectedPromotion == null) return;
-                    bool sucess = await HttpRequests.DeletePromotion(selectedPromotion._id);
-                    if (sucess)
+                    success = await HttpRequests.DeletePromotion(selectedPromotion._id);
+                    if (success)
                     {
                         this.adminuser.promos.RemoveAt(selectedIndex);
                         comboBoxPromotion.Items.RemoveAt(selectedIndex);
@@ -145,12 +147,42 @@ namespace CompetencesApp
                     // Delete promotion
                     break;
                 case 1:
+                    selectedIndex = comboBoxUsers.SelectedIndex;
+                    if (selectedIndex == -1) return;
+                    var selectedUser = this.adminuser.users[selectedIndex];
+                    if (selectedUser == null) return;
+                    success = await HttpRequests.DeleteUser(selectedUser._id);
+                    if (success)
+                    {
+                        this.adminuser.users.RemoveAt(selectedIndex);
+                        comboBoxUsers.Items.RemoveAt(selectedIndex);
+                    }
                     // Delete User
                     break;
                 case 2:
+                    selectedIndex = comboBoxCompetenceBlock.SelectedIndex;
+                    if (selectedIndex == -1) return;
+                    var selectedCompetenceBlock = this.adminuser.competenceblocks[selectedIndex];
+                    if (selectedCompetenceBlock == null) return;
+                    success = await HttpRequests.DeleteCompetenceBlock(selectedCompetenceBlock._id);
+                    if (success)
+                    {
+                        this.adminuser.competenceblocks.RemoveAt(selectedIndex);
+                        comboBoxCompetenceBlock.Items.RemoveAt(selectedIndex);
+                    }
                     // Delete CompetenceBlock
                     break;
                 case 3:
+                    selectedIndex = comboBoxCompetences.SelectedIndex;
+                    if (selectedIndex == -1) return;
+                    var selectedCompetence = this.adminuser.competences[selectedIndex];
+                    if (selectedCompetence == null) return;
+                    success = await HttpRequests.DeleteCompetence(selectedCompetence._id);
+                    if (success)
+                    {
+                        this.adminuser.competences.RemoveAt(selectedIndex);
+                        comboBoxCompetences.Items.RemoveAt(selectedIndex);
+                    }
                     // Delete Competence
                     break;
                 default:
@@ -244,22 +276,22 @@ namespace CompetencesApp
                     break;
                 case 0:
                     // Add promotion
-                    FormAddPromotion addpromotion = new FormAddPromotion();
+                    FormAddPromotion addpromotion = new FormAddPromotion(this.adminuser,comboBoxPromotion);
                     addpromotion.ShowDialog();
                     break;
                 case 1:
                     // Add User
-                    FormAddUser adduser = new FormAddUser();
+                    FormAddUser adduser = new FormAddUser(this.adminuser, comboBoxUsers);
                     adduser.ShowDialog();
                     break;
                 case 2:
                     // Add CompetenceBlock
-                    FormAddCompetenceBlock addcompetenceblock = new FormAddCompetenceBlock();
+                    FormAddCompetenceBlock addcompetenceblock = new FormAddCompetenceBlock(this.adminuser, comboBoxCompetenceBlock);
                     addcompetenceblock.ShowDialog();
                     break;
                 case 3:
                     // Add Competence
-                    FormAddCompetence addcompetence = new FormAddCompetence();
+                    FormAddCompetence addcompetence = new FormAddCompetence(this.adminuser, comboBoxCompetences);
                     addcompetence.ShowDialog();
                     break;
                 default:
