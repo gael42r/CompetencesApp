@@ -36,7 +36,8 @@ namespace CompetencesApp
 
             teacheruser.teacherCompetence.ForEach((competence) => comboBoxCompetences.Items.Add(competence.name));
 
-            comboBoxCompetences.SelectedIndex = 0;
+            if(comboBoxCompetences.Items.Count != 0) comboBoxCompetences.SelectedIndex = 0;
+
 
             this.ShowDialog();
         }

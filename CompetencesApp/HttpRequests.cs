@@ -179,7 +179,7 @@ namespace CompetencesApp
             {
                 var content = httpResponseMessage.Content;
                 var list = await content.ReadAsAsync<List<Competence>>();
-
+                if (list == null) return new List<Competence>();
 
                 return list;
             }
@@ -319,10 +319,10 @@ namespace CompetencesApp
             try
             {
                 isAdmin = (bool)userJObject.GetValue("isAdmin");
+                isTeacher = (bool)userJObject.GetValue("isTeacher");
             }
             catch(Exception e)
             {
-                isTeacher = (bool)userJObject.GetValue("isTeacher");
             }
 
 
@@ -583,6 +583,89 @@ namespace CompetencesApp
             }
 
             return true;
+        }
+
+        public static async Task<User> PostCreateUser(string username, string firstname, string name, string password, bool isAdmin, bool isTeacher)
+        {
+            string payload = JsonConvert.SerializeObject(new
+            {
+                username = username,
+                firstName = firstname,
+                surname = name,
+                clearPassword = password,
+                isAdmin = isAdmin,
+                isTeacher = isTeacher
+            });
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/users");
+            var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            request.Content = stringContent;
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+
+
+            var user = await response.Content.ReadAsAsync<User>();
+            return user;
+        }
+
+        public static async Task<Promotion> PostCreatePromotion(string name)
+        {
+            string payload = JsonConvert.SerializeObject(new
+            {
+                name = name
+            });
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/promotions");
+            var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            request.Content = stringContent;
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+
+
+            var promotion = await response.Content.ReadAsAsync<Promotion>();
+            return promotion;
+        }
+
+        public static async Task<CompetenceBlock> PostCreateCompetenceBlock(string name, string description)
+        {
+            string payload = JsonConvert.SerializeObject(new
+            {
+                name = name,
+                description = description
+            });
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/competenceblocks");
+            var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            request.Content = stringContent;
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+
+
+            var competenceblock = await response.Content.ReadAsAsync<CompetenceBlock>();
+            return competenceblock;
+        }
+
+        public static async Task<Competence> PostCreateCompetence(string name, string description)
+        {
+            string payload = JsonConvert.SerializeObject(new
+            {
+                name = name,
+                description = description
+            });
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/competences");
+            var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            request.Content = stringContent;
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+
+
+            var competence = await response.Content.ReadAsAsync<Competence>();
+            return competence;
         }
     }
 }

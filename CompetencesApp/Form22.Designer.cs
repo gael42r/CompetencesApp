@@ -306,6 +306,7 @@
             this.addButton.TabIndex = 34;
             this.addButton.Text = "+";
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // deleteButton
             // 

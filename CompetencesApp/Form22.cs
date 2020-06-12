@@ -334,6 +334,37 @@ namespace CompetencesApp
             }
 
         }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            switch (this.currentWindow)
+            {
+                case -1:
+                    break;
+                case 0:
+                    // Add promotion
+                    FormAddPromotion addpromotion = new FormAddPromotion();
+                    addpromotion.ShowDialog();
+                    break;
+                case 1:
+                    // Add User
+                    FormAddUser adduser = new FormAddUser();
+                    adduser.ShowDialog();
+                    break;
+                case 2:
+                    // Add CompetenceBlock
+                    FormAddCompetenceBlock addcompetenceblock = new FormAddCompetenceBlock();
+                    addcompetenceblock.ShowDialog();
+                    break;
+                case 3:
+                    // Add Competence
+                    FormAddCompetence addcompetence = new FormAddCompetence();
+                    addcompetence.ShowDialog();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
 }
