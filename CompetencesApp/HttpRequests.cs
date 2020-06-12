@@ -77,6 +77,48 @@ namespace CompetencesApp
             return other_list;
         }
 
+        public static async Task<List<User>> GetAllUserByPromotionId(string id)
+        {
+            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/promotions/" + id + "/users");
+            if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
+            {
+                var content = httpResponseMessage.Content;
+                var list = await content.ReadAsAsync<List<User>>();
+                if (list == null) list = new List<User>();
+                return list;
+            }
+            List<User> other_list = new List<User>();
+            return other_list;
+        }
+
+        public static async Task<Promotion> PatchPromotionUsers(string promotionId, List<User> users)
+        {
+
+            string payload;
+
+
+            List<string> usersId = new List<string>();
+
+            users.ForEach((user) => usersId.Add(user._id));
+            payload = JsonConvert.SerializeObject(new
+            {
+                users = usersId,
+            });
+
+
+            var request = new HttpRequestMessage(HttpMethod.Put, "http://91.171.37.70:16384/promotions/" + promotionId +"/users");
+            var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            request.Content = stringContent;
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+
+
+            var promotion = await response.Content.ReadAsAsync<Promotion>();
+            return promotion;
+        }
+
 
         public static async Task<List<UserCompetence>> GetUsersCompetencesById(string id)
         {

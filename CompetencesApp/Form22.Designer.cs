@@ -48,6 +48,13 @@
             this.addButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.comboBoxCompetences = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listBoxNoPromotionUsers = new System.Windows.Forms.ListBox();
+            this.listBoxPromotionUsers = new System.Windows.Forms.ListBox();
+            this.addUserPromotionButton = new System.Windows.Forms.Button();
+            this.removeUserPromotionButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelStudent.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -249,6 +256,7 @@
             this.comboBoxPromotion.Name = "comboBoxPromotion";
             this.comboBoxPromotion.Size = new System.Drawing.Size(759, 38);
             this.comboBoxPromotion.TabIndex = 27;
+            this.comboBoxPromotion.SelectedIndexChanged += new System.EventHandler(this.comboBoxPromotion_SelectedIndexChanged);
             // 
             // comboBoxUsers
             // 
@@ -320,12 +328,111 @@
             this.comboBoxCompetences.Name = "comboBoxCompetences";
             this.comboBoxCompetences.Size = new System.Drawing.Size(759, 38);
             this.comboBoxCompetences.TabIndex = 36;
+            this.comboBoxCompetences.SelectedIndexChanged += new System.EventHandler(this.comboBoxCompetences_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.label1.Location = new System.Drawing.Point(149, 270);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 30);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Eleves :";
+            // 
+            // listBoxNoPromotionUsers
+            // 
+            this.listBoxNoPromotionUsers.BackColor = System.Drawing.Color.DarkGray;
+            this.listBoxNoPromotionUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxNoPromotionUsers.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxNoPromotionUsers.ForeColor = System.Drawing.Color.White;
+            this.listBoxNoPromotionUsers.FormattingEnabled = true;
+            this.listBoxNoPromotionUsers.ItemHeight = 17;
+            this.listBoxNoPromotionUsers.Location = new System.Drawing.Point(154, 302);
+            this.listBoxNoPromotionUsers.Name = "listBoxNoPromotionUsers";
+            this.listBoxNoPromotionUsers.Size = new System.Drawing.Size(322, 272);
+            this.listBoxNoPromotionUsers.TabIndex = 38;
+            // 
+            // listBoxPromotionUsers
+            // 
+            this.listBoxPromotionUsers.BackColor = System.Drawing.Color.DarkGray;
+            this.listBoxPromotionUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxPromotionUsers.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxPromotionUsers.ForeColor = System.Drawing.Color.White;
+            this.listBoxPromotionUsers.FormattingEnabled = true;
+            this.listBoxPromotionUsers.ItemHeight = 17;
+            this.listBoxPromotionUsers.Location = new System.Drawing.Point(631, 302);
+            this.listBoxPromotionUsers.Name = "listBoxPromotionUsers";
+            this.listBoxPromotionUsers.Size = new System.Drawing.Size(326, 272);
+            this.listBoxPromotionUsers.TabIndex = 39;
+            // 
+            // addUserPromotionButton
+            // 
+            this.addUserPromotionButton.BackColor = System.Drawing.Color.Lime;
+            this.addUserPromotionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addUserPromotionButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.addUserPromotionButton.Location = new System.Drawing.Point(537, 302);
+            this.addUserPromotionButton.Name = "addUserPromotionButton";
+            this.addUserPromotionButton.Size = new System.Drawing.Size(49, 40);
+            this.addUserPromotionButton.TabIndex = 40;
+            this.addUserPromotionButton.Text = "->";
+            this.addUserPromotionButton.UseVisualStyleBackColor = false;
+            this.addUserPromotionButton.Click += new System.EventHandler(this.addUserPromotionButton_Click);
+            // 
+            // removeUserPromotionButton
+            // 
+            this.removeUserPromotionButton.BackColor = System.Drawing.Color.Lime;
+            this.removeUserPromotionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removeUserPromotionButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.removeUserPromotionButton.Location = new System.Drawing.Point(537, 395);
+            this.removeUserPromotionButton.Name = "removeUserPromotionButton";
+            this.removeUserPromotionButton.Size = new System.Drawing.Size(49, 40);
+            this.removeUserPromotionButton.TabIndex = 41;
+            this.removeUserPromotionButton.Text = "<-";
+            this.removeUserPromotionButton.UseVisualStyleBackColor = false;
+            this.removeUserPromotionButton.Click += new System.EventHandler(this.removeUserPromotionButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.BackColor = System.Drawing.Color.Lime;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.saveButton.Location = new System.Drawing.Point(493, 522);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(120, 52);
+            this.saveButton.TabIndex = 42;
+            this.saveButton.Text = "Sauvegarder";
+            this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.label2.Location = new System.Drawing.Point(626, 269);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(271, 30);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "Eleves dans la promotion :";
             // 
             // Form22
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.removeUserPromotionButton);
+            this.Controls.Add(this.addUserPromotionButton);
+            this.Controls.Add(this.listBoxPromotionUsers);
+            this.Controls.Add(this.listBoxNoPromotionUsers);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxCompetences);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.addButton);
@@ -365,5 +472,12 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.ComboBox comboBoxCompetences;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listBoxNoPromotionUsers;
+        private System.Windows.Forms.ListBox listBoxPromotionUsers;
+        private System.Windows.Forms.Button addUserPromotionButton;
+        private System.Windows.Forms.Button removeUserPromotionButton;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -11,10 +11,8 @@ namespace CompetencesApp
         public string name { get; set; }
         public string _id { get; set; }
 
-        public Promotion()
-        {
-            Console.WriteLine(name);
-        }
+        public List<User> users { get; set; }
+
     }
 
 
