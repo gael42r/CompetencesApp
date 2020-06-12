@@ -12,8 +12,12 @@ namespace CompetencesApp
 {
     public partial class FormAddPromotion : Form2
     {
-        public FormAddPromotion()
+        Admin userAdmin;
+        ComboBox comboBox;
+        public FormAddPromotion(Admin userAdmin,ComboBox comboBoxModified)
         {
+            this.comboBox = comboBoxModified;
+            this.userAdmin = userAdmin;
             InitializeComponent();
         }
 
@@ -24,8 +28,9 @@ namespace CompetencesApp
 
         private async void buttonAdd_Click(object sender, EventArgs e)
         {
-            var user = await HttpRequests.PostCreatePromotion(textBoxNom.Text);
-
+            var promotion = await HttpRequests.PostCreatePromotion(textBoxNom.Text);
+            this.userAdmin.promos.Add(promotion);
+            this.comboBox.Items.Add(promotion.name);
             this.Close();
         }
     }
