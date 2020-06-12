@@ -279,6 +279,8 @@
             this.comboBoxCompetenceBlock.Name = "comboBoxCompetenceBlock";
             this.comboBoxCompetenceBlock.Size = new System.Drawing.Size(759, 38);
             this.comboBoxCompetenceBlock.TabIndex = 30;
+            this.comboBoxCompetenceBlock.SelectedIndexChanged += new System.EventHandler(this.comboBoxCompetenceBlock_SelectedIndexChanged);
+            
             // 
             // labelCombo
             // 
