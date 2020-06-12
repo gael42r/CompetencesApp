@@ -36,7 +36,7 @@ namespace CompetencesApp
             {
                 comboBoxPromotion.Items.Add(promo.name);
             }
-            comboBoxPromotion.SelectedIndex = 0;
+            if (comboBoxPromotion.Items.Count != 0) comboBoxPromotion.SelectedIndex = 0;
 
 
             this.ShowDialog();

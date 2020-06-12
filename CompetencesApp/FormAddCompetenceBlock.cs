@@ -21,5 +21,12 @@ namespace CompetencesApp
         {
             this.Close();
         }
+
+        private async void buttonAdd_Click(object sender, EventArgs e)
+        {
+            var competenceblock = await HttpRequests.PostCreateCompetenceBlock(textBoxNom.Text, textBoxDescription.Text);
+
+            this.Close();
+        }
     }
 }

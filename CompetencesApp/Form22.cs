@@ -243,22 +243,22 @@ namespace CompetencesApp
                 case -1:
                     break;
                 case 0:
-                    // Delete promotion
+                    // Add promotion
                     FormAddPromotion addpromotion = new FormAddPromotion();
                     addpromotion.ShowDialog();
                     break;
                 case 1:
-                    // Delete User
+                    // Add User
                     FormAddUser adduser = new FormAddUser();
                     adduser.ShowDialog();
                     break;
                 case 2:
-                    // Delete CompetenceBlock
+                    // Add CompetenceBlock
                     FormAddCompetenceBlock addcompetenceblock = new FormAddCompetenceBlock();
                     addcompetenceblock.ShowDialog();
                     break;
                 case 3:
-                    // Delete Competence
+                    // Add Competence
                     FormAddCompetence addcompetence = new FormAddCompetence();
                     addcompetence.ShowDialog();
                     break;

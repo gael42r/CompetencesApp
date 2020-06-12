@@ -90,6 +90,7 @@
             this.buttonAdd.TabIndex = 41;
             this.buttonAdd.Text = "Ajouter";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // textBoxNom
             // 

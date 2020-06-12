@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddCompetence));
-            this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.labelDescription = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.textBoxNom = new System.Windows.Forms.TextBox();
@@ -37,18 +36,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonClose = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textBoxDescription
-            // 
-            this.textBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.textBoxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.textBoxDescription.Location = new System.Drawing.Point(28, 188);
-            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(620, 30);
-            this.textBoxDescription.TabIndex = 52;
             // 
             // labelDescription
             // 
@@ -56,7 +46,7 @@
             this.labelDescription.BackColor = System.Drawing.Color.Transparent;
             this.labelDescription.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelDescription.Location = new System.Drawing.Point(23, 154);
+            this.labelDescription.Location = new System.Drawing.Point(332, 86);
             this.labelDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(137, 30);
@@ -74,6 +64,7 @@
             this.buttonAdd.TabIndex = 50;
             this.buttonAdd.Text = "Ajouter";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // textBoxNom
             // 
@@ -82,7 +73,7 @@
             this.textBoxNom.Location = new System.Drawing.Point(28, 120);
             this.textBoxNom.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(620, 30);
+            this.textBoxNom.Size = new System.Drawing.Size(268, 30);
             this.textBoxNom.TabIndex = 49;
             // 
             // labelNom
@@ -139,6 +130,18 @@
             this.labelTitle.TabIndex = 27;
             this.labelTitle.Text = "Ajouter une compétence";
             // 
+            // textBoxDescription
+            // 
+            this.textBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.textBoxDescription.Location = new System.Drawing.Point(337, 120);
+            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.textBoxDescription.Multiline = true;
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(311, 107);
+            this.textBoxDescription.TabIndex = 57;
+            // 
             // FormAddCompetence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,8 +164,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.TextBox textBoxNom;
@@ -170,5 +171,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.TextBox textBoxDescription;
     }
 }

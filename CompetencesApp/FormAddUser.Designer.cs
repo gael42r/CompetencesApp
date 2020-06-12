@@ -190,6 +190,7 @@
             this.buttonAdd.TabIndex = 38;
             this.buttonAdd.Text = "Ajouter";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // labelStatut
             // 
@@ -210,6 +211,10 @@
             this.comboBoxStatut.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.comboBoxStatut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.comboBoxStatut.FormattingEnabled = true;
+            this.comboBoxStatut.Items.AddRange(new object[] {
+            "Etudiant",
+            "Professeur",
+            "Administrateur"});
             this.comboBoxStatut.Location = new System.Drawing.Point(28, 246);
             this.comboBoxStatut.Name = "comboBoxStatut";
             this.comboBoxStatut.Size = new System.Drawing.Size(260, 38);
