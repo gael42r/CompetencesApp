@@ -35,7 +35,23 @@ namespace CompetencesApp
                 var content = httpResponseMessage.Content;
                 var list = await content.ReadAsAsync<List<User>>();
                 if (list == null) return new List<User>();
-                return list;
+                List<User> returnList = new List<User>();
+
+                list.ForEach(async(user) =>
+                {
+                    if (user.isTeacher)
+                    {
+                        Teacher teacher = new Teacher(user);
+                        teacher.teacherCompetence = await GetAllTeacherCompetenceById(teacher._id);
+                        returnList.Add(teacher);
+                    }
+                    else
+                    {
+                        returnList.Add(user);
+                    }
+                });
+
+                return returnList;
             }
             List<User> other_list = new List<User>();
             return other_list;

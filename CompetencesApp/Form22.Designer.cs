@@ -268,6 +268,8 @@
             this.comboBoxUsers.Name = "comboBoxUsers";
             this.comboBoxUsers.Size = new System.Drawing.Size(759, 38);
             this.comboBoxUsers.TabIndex = 28;
+            this.comboBoxUsers.SelectedIndexChanged += new System.EventHandler(this.comboBoxUsers_SelectedIndexChanged);
+
             // 
             // comboBoxCompetenceBlock
             // 

@@ -21,6 +21,9 @@ namespace CompetencesApp
         private List<Competence> competenceNotInBlock = new List<Competence>();
         private List<Competence> competenceInBlock = new List<Competence>();
 
+        private List<Competence> competenceOwnedByTeacher = new List<Competence>();
+        private List<Competence> competenceNotOwnedByTeacher = new List<Competence>();
+
 
         public Form22(Admin adminuser)
         {
@@ -166,11 +169,6 @@ namespace CompetencesApp
 
         }
 
-        private void comboBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBoxCompetenceBlock_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -221,6 +219,35 @@ namespace CompetencesApp
 
         }
 
+        private async void comboBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxUsers.SelectedIndex == -1) return;
+            int selectedIndex = comboBoxUsers.SelectedIndex;
+            User selectedUser = this.adminuser.users[selectedIndex];
+            if (selectedUser == null) return;
+            if (!(selectedUser.isTeacher)) return;
+            Teacher selectedTeacher = selectedUser as Teacher;
+
+            label1.Text = selectedTeacher.teacherCompetence.ToString();
+            List<Competence> competenceNotOwned = new List<Competence>();
+
+            this.adminuser.competences.ForEach((competence) =>
+            {
+                if (!TeacherOwnCompetence(selectedTeacher, competence._id)) competenceNotOwned.Add(competence);
+            });
+
+            listBoxNoPromotionUsers.Items.Clear();
+            listBoxPromotionUsers.Items.Clear();
+            
+            //userNotInPromotion.ForEach((user) => listBoxNoPromotionUsers.Items.Add(user.surname + " " + user.firstName));
+            //selectedPromotion.users.ForEach((user) => listBoxPromotionUsers.Items.Add(user.surname + " " + user.firstName));
+            //this.usersNotInPromotion = userNotInPromotion;
+            // List<User> promotionUsers = new List<User>(); // On fait copy sinon assignation = reference
+            // selectedPromotion.users.ForEach((user) => promotionUsers.Add(user));
+            // this.usersInPromotion = promotionUsers;
+
+        }
+
 
         private bool PromotionContainsUser(Promotion promo,string userId)
         {
@@ -238,6 +265,17 @@ namespace CompetencesApp
             bool contains = false;
             if (competenceBlock.competence == null) return false;
             competenceBlock.competence.ForEach((competence) =>
+            {
+                if (competence._id == competenceId) contains = true;
+            });
+            return contains;
+        }
+
+        private bool TeacherOwnCompetence(Teacher teacher, string competenceId)
+        {
+            bool contains = false;
+            if (teacher.comps == null) return false;
+            teacher.teacherCompetence.ForEach((competence) =>
             {
                 if (competence._id == competenceId) contains = true;
             });
