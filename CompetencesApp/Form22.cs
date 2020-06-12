@@ -235,6 +235,37 @@ namespace CompetencesApp
             usersInPromotion.ForEach((user) => promoUsers.Add(user));
             this.adminuser.promos[selectedIndex].users = promoUsers;
         }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            switch (this.currentWindow)
+            {
+                case -1:
+                    break;
+                case 0:
+                    // Delete promotion
+                    FormAddPromotion addpromotion = new FormAddPromotion();
+                    addpromotion.ShowDialog();
+                    break;
+                case 1:
+                    // Delete User
+                    FormAddUser adduser = new FormAddUser();
+                    adduser.ShowDialog();
+                    break;
+                case 2:
+                    // Delete CompetenceBlock
+                    FormAddCompetenceBlock addcompetenceblock = new FormAddCompetenceBlock();
+                    addcompetenceblock.ShowDialog();
+                    break;
+                case 3:
+                    // Delete Competence
+                    FormAddCompetence addcompetence = new FormAddCompetence();
+                    addcompetence.ShowDialog();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
 }
