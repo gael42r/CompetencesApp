@@ -34,6 +34,7 @@ namespace CompetencesApp
             {
                 var content = httpResponseMessage.Content;
                 var list = await content.ReadAsAsync<List<User>>();
+                if (list == null) return new List<User>();
                 return list;
             }
             List<User> other_list = new List<User>();
@@ -46,6 +47,8 @@ namespace CompetencesApp
             {
                 var content = httpResponseMessage.Content;
                 var list = await content.ReadAsAsync<List<Competence>>();
+                if(list == null) return new List<Competence>();
+
                 return list;
             }
             List<Competence> other_list = new List<Competence>();
@@ -59,6 +62,7 @@ namespace CompetencesApp
             {
                 var content = httpResponseMessage.Content;
                 var list = await content.ReadAsAsync<List<CompetenceBlock>>();
+                if (list == null) return new List<CompetenceBlock>();
                 return list;
             }
             List<CompetenceBlock> other_list = new List<CompetenceBlock>();
@@ -117,6 +121,41 @@ namespace CompetencesApp
 
             var promotion = await response.Content.ReadAsAsync<Promotion>();
             return promotion;
+        }
+        public static async Task<CompetenceBlock> PatchCompetenceBlockCompetence(string blockId, List<Competence> competences)
+        {
+
+            string payload;
+
+
+            List<string> competenceId = new List<string>();
+
+            competences.ForEach((competence) => competenceId.Add(competence._id));
+
+            payload = JsonConvert.SerializeObject(new
+            {
+                competence = competenceId,
+            });
+
+
+            var request = new HttpRequestMessage(HttpMethod.Put, "http://91.171.37.70:16384/competenceblocks/" + blockId + "/competences");
+            var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            request.Content = stringContent;
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+            CompetenceBlock block = new CompetenceBlock();
+            try
+            {
+                block = await response.Content.ReadAsAsync<CompetenceBlock>();
+
+            }
+            catch
+            {
+                block.competence = await GetCompetenceBlocksCompetencesById(block._id);
+            }
+            return block;
         }
 
 
@@ -298,7 +337,7 @@ namespace CompetencesApp
                 user.users = await GetUsers();
                 user.promos = await GetPromotions();
 
-                return user; // A enlever fin test
+                return user; 
             }
             else if (isTeacher)
             {

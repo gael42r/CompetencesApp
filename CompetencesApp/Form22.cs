@@ -18,6 +18,9 @@ namespace CompetencesApp
         private List<User> usersNotInPromotion = new List<User>();
         private List<User> usersInPromotion = new List<User>();
 
+        private List<Competence> competenceNotInBlock = new List<Competence>();
+        private List<Competence> competenceInBlock = new List<Competence>();
+
 
         public Form22(Admin adminuser)
         {
@@ -64,6 +67,8 @@ namespace CompetencesApp
         {
             comboBoxCompetenceBlock.Show();
             currentWindow = 2;
+
+            comboBoxCompetenceBlock.SelectedIndex = -1;
             labelCombo.Text = "Blocs de compétence : ";
         }
 
@@ -131,8 +136,6 @@ namespace CompetencesApp
             bool success;
             switch (this.currentWindow)
             {
-                case -1:
-                    break;
                 case 0:
                     selectedIndex = comboBoxPromotion.SelectedIndex;
                     if (selectedIndex == -1) return;
@@ -195,6 +198,36 @@ namespace CompetencesApp
 
         }
 
+        private void comboBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxCompetenceBlock_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (comboBoxCompetenceBlock.SelectedIndex == -1) return;
+            int selectedIndex = comboBoxCompetenceBlock.SelectedIndex;
+            CompetenceBlock selectedCompetenceBlock = this.adminuser.competenceblocks[selectedIndex];
+            if (selectedCompetenceBlock == null) return;
+
+            List<Competence> competenceNotInBlock = new List<Competence>();
+
+            this.adminuser.competences.ForEach((competence) =>
+            {
+                if (!BlockContainsCompetence(selectedCompetenceBlock, competence._id)) competenceNotInBlock.Add(competence);
+            });
+            listBoxNoPromotionUsers.Items.Clear();
+            listBoxPromotionUsers.Items.Clear();
+
+            competenceNotInBlock.ForEach((competence) => listBoxNoPromotionUsers.Items.Add(competence.name));
+            selectedCompetenceBlock.competence.ForEach((competence) => listBoxPromotionUsers.Items.Add(competence.name));
+            this.competenceNotInBlock = competenceNotInBlock;
+            List<Competence> competenceInBlock = new List<Competence>();
+            selectedCompetenceBlock.competence.ForEach((competence) => competenceInBlock.Add(competence));
+            this.competenceInBlock = competenceInBlock;
+        }
+
         private void comboBoxPromotion_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxPromotion.SelectedIndex == -1) return;
@@ -211,8 +244,8 @@ namespace CompetencesApp
             listBoxNoPromotionUsers.Items.Clear();
             listBoxPromotionUsers.Items.Clear();
 
-            userNotInPromotion.ForEach((user) => listBoxNoPromotionUsers.Items.Add(user.firstName));
-            selectedPromotion.users.ForEach((user) => listBoxPromotionUsers.Items.Add(user.firstName));
+            userNotInPromotion.ForEach((user) => listBoxNoPromotionUsers.Items.Add(user.surname + " " + user.firstName));
+            selectedPromotion.users.ForEach((user) => listBoxPromotionUsers.Items.Add(user.surname + " " + user.firstName));
             this.usersNotInPromotion = userNotInPromotion;
             List<User> promotionUsers = new List<User>(); // On fait copy sinon assignation = reference
             selectedPromotion.users.ForEach((user) => promotionUsers.Add(user));
@@ -232,40 +265,106 @@ namespace CompetencesApp
             return contains;
         }
 
+        private bool BlockContainsCompetence(CompetenceBlock competenceBlock, string competenceId)
+        {
+            bool contains = false;
+            if (competenceBlock.competence == null) return false;
+            competenceBlock.competence.ForEach((competence) =>
+            {
+                if (competence._id == competenceId) contains = true;
+            });
+            return contains;
+        }
+
         private void addUserPromotionButton_Click(object sender, EventArgs e)
         {
+
             if (listBoxNoPromotionUsers.SelectedIndex == -1) return;
             int selectedIndex = listBoxNoPromotionUsers.SelectedIndex;
-            User selectedUser = usersNotInPromotion[selectedIndex];
-            if (selectedUser == null) return;
-            usersNotInPromotion.RemoveAt(selectedIndex);
-            usersInPromotion.Add(selectedUser);
-            listBoxPromotionUsers.Items.Add(selectedUser.firstName); // Nom a changer si besoin
+            switch (this.currentWindow)
+            {
+                case 0:
+                    User selectedUser = usersNotInPromotion[selectedIndex];
+                    if (selectedUser == null) return;
+                    usersNotInPromotion.RemoveAt(selectedIndex);
+                    usersInPromotion.Add(selectedUser);
+
+                    listBoxPromotionUsers.Items.Add(selectedUser.surname + " "+selectedUser.firstName); 
+                    break;
+                case 2:
+                    Competence selectedCompetence = competenceNotInBlock[selectedIndex];
+                    if (selectedCompetence == null) return;
+                    competenceNotInBlock.RemoveAt(selectedIndex);
+                    competenceInBlock.Add(selectedCompetence);
+
+                    listBoxPromotionUsers.Items.Add(selectedCompetence.name);
+                    break;
+                default:
+                    return;
+
+            }
             listBoxNoPromotionUsers.Items.RemoveAt(selectedIndex);
         }
 
         private void removeUserPromotionButton_Click(object sender, EventArgs e)
         {
-            if (listBoxPromotionUsers.SelectedIndex == -1) return;
+
             int selectedIndex = listBoxPromotionUsers.SelectedIndex;
-            User selectedUser = usersInPromotion[selectedIndex];
-            if (selectedUser == null) return;
-            usersInPromotion.RemoveAt(selectedIndex);
-            usersNotInPromotion.Add(selectedUser);
-            listBoxNoPromotionUsers.Items.Add(selectedUser.firstName); // Nom a changer si besoin
+            if (selectedIndex == -1) return;
+            switch (this.currentWindow)
+            {
+                case 0:
+                    User selectedUser = usersInPromotion[selectedIndex];
+                    if (selectedUser == null) return;
+                    usersInPromotion.RemoveAt(selectedIndex);
+                    usersNotInPromotion.Add(selectedUser);
+
+                    listBoxNoPromotionUsers.Items.Add(selectedUser.surname + " " + selectedUser.firstName);
+                    break;
+                case 2:
+                    Competence selectedCompetence = competenceInBlock[selectedIndex];
+                    if (selectedCompetence == null) return;
+                    competenceInBlock.RemoveAt(selectedIndex);
+                    competenceNotInBlock.Add(selectedCompetence);
+                    listBoxNoPromotionUsers.Items.Add(selectedCompetence.name);
+                    break;
+                default:
+                    return;
+
+            }
             listBoxPromotionUsers.Items.RemoveAt(selectedIndex);
         }
 
         private async void saveButton_Click(object sender, EventArgs e)
         {
-            int selectedIndex = comboBoxPromotion.SelectedIndex;
-            if (selectedIndex == -1) return;
-            Promotion selectedPromotion = this.adminuser.promos[selectedIndex];
-            if (selectedPromotion == null) return;
-            await HttpRequests.PatchPromotionUsers(selectedPromotion._id,usersInPromotion);
-            List<User> promoUsers = new List<User>();
-            usersInPromotion.ForEach((user) => promoUsers.Add(user));
-            this.adminuser.promos[selectedIndex].users = promoUsers;
+            int selectedIndex = -1;
+            switch (this.currentWindow)
+            {
+                case 0:
+                    selectedIndex = comboBoxPromotion.SelectedIndex;
+                    if (selectedIndex == -1) return;
+                    Promotion selectedPromotion = this.adminuser.promos[selectedIndex];
+                    if (selectedPromotion == null) return;
+                    await HttpRequests.PatchPromotionUsers(selectedPromotion._id, usersInPromotion);
+                    List<User> promoUsers = new List<User>();
+                    usersInPromotion.ForEach((user) => promoUsers.Add(user));
+                    this.adminuser.promos[selectedIndex].users = promoUsers;
+                    break;
+                case 2:
+                    selectedIndex = comboBoxCompetenceBlock.SelectedIndex;
+                    if (selectedIndex == -1) return;
+                    CompetenceBlock selectedBlock = this.adminuser.competenceblocks[selectedIndex];
+                    if (selectedBlock == null) return;
+                    await HttpRequests.PatchCompetenceBlockCompetence(selectedBlock._id, this.competenceInBlock);
+                    List<Competence> competences = new List<Competence>();
+                    competenceInBlock.ForEach((competence) => competences.Add(competence));
+                    this.adminuser.competenceblocks[selectedIndex].competence = competences;
+                    break;
+                default:
+
+                    break;
+            }
+
         }
 
         private void addButton_Click(object sender, EventArgs e)
