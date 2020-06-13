@@ -174,6 +174,32 @@ namespace CompetencesApp
             return block;
         }
 
+        public static async Task<bool> PatchTeacherCompetences(string teacherId, List<Competence> competences)
+        {
+
+            string payload;
+
+            List<string> competenceId = new List<string>();
+
+            competences.ForEach((competence) => competenceId.Add(competence._id));
+
+            payload = JsonConvert.SerializeObject(new
+            {
+                competences = competenceId,
+            });
+
+
+            var request = new HttpRequestMessage(HttpMethod.Put, "http://91.171.37.70:16384/users/"+teacherId+"/teachercompetences");
+            var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            request.Content = stringContent;
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+            //List<Competence> teacherComps = await response.Content.ReadAsAsync<List<Competence>>();
+            return true;
+            //return teacherComps;
+        }
 
         public static async Task<List<UserCompetence>> GetUsersCompetencesById(string id)
         {

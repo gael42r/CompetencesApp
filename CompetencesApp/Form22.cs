@@ -55,29 +55,47 @@ namespace CompetencesApp
         private void ShowPromotions()
         {
             comboBoxPromotion.Show();
+
+            ShowListBox();
             currentWindow = 0;
             comboBoxPromotion.SelectedIndex = -1;
             labelCombo.Text = "Promotion : "; // Je pense que c'est + pertinent de changer le nom ici car ça ne change jamais de pos
+
+            label1.Text = "Élèves  :";
+            label2.Text = "Élèves appartenant à la promotion :";
         }
         private void ShowUsers()
         {
+
             comboBoxUsers.Show();
             currentWindow = 1;
+            comboBoxUsers.SelectedIndex = -1;
             labelCombo.Text = "Utilisateurs : ";
+
+            label1.Text = "Compétences :";
+            label2.Text = "Compétences du professeur :";
         }
 
         private void ShowCompetenceBlocks()
         {
             comboBoxCompetenceBlock.Show();
+            ShowListBox();
             currentWindow = 2;
 
             comboBoxCompetenceBlock.SelectedIndex = -1;
+
             labelCombo.Text = "Blocs de compétence : ";
+            label1.Text = "Compétences :";
+            label2.Text = "Compétences appartenant au bloc :";
+
         }
 
         private void ShowCompetences()
         {
+            
             comboBoxCompetences.Show();
+            
+
             currentWindow = 3;
             labelCombo.Text = "Compétences : ";
         }
@@ -88,6 +106,7 @@ namespace CompetencesApp
             comboBoxPromotion.Hide();
             this.usersInPromotion.Clear();
             this.usersNotInPromotion.Clear();
+            HideListBox();
             listBoxNoPromotionUsers.Items.Clear();
             listBoxPromotionUsers.Items.Clear();
 
@@ -253,14 +272,19 @@ namespace CompetencesApp
 
         private async void comboBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
+            listBoxNoPromotionUsers.Items.Clear();
+            listBoxPromotionUsers.Items.Clear();
+            HideListBox();
+
             if (comboBoxUsers.SelectedIndex == -1) return;
             int selectedIndex = comboBoxUsers.SelectedIndex;
             User selectedUser = this.adminuser.users[selectedIndex];
             if (selectedUser == null) return;
             if (!(selectedUser.isTeacher)) return;
+            ShowListBox();
+
             Teacher selectedTeacher = selectedUser as Teacher;
 
-            label1.Text = selectedTeacher.teacherCompetence.ToString();
             List<Competence> competenceNotOwned = new List<Competence>();
 
             this.adminuser.competences.ForEach((competence) =>
@@ -268,16 +292,15 @@ namespace CompetencesApp
                 if (!TeacherOwnCompetence(selectedTeacher, competence._id)) competenceNotOwned.Add(competence);
             });
 
-            listBoxNoPromotionUsers.Items.Clear();
-            listBoxPromotionUsers.Items.Clear();
-            
-            //userNotInPromotion.ForEach((user) => listBoxNoPromotionUsers.Items.Add(user.surname + " " + user.firstName));
-            //selectedPromotion.users.ForEach((user) => listBoxPromotionUsers.Items.Add(user.surname + " " + user.firstName));
-            //this.usersNotInPromotion = userNotInPromotion;
-            // List<User> promotionUsers = new List<User>(); // On fait copy sinon assignation = reference
-            // selectedPromotion.users.ForEach((user) => promotionUsers.Add(user));
-            // this.usersInPromotion = promotionUsers;
 
+            competenceNotOwned.ForEach((competence) => listBoxNoPromotionUsers.Items.Add(competence.name));
+            this.competenceNotOwnedByTeacher = competenceNotOwned;
+             List<Competence> teacherComp = new List<Competence>(); 
+             selectedTeacher.teacherCompetence.ForEach((competence) => {
+                 teacherComp.Add(competence);
+                 listBoxPromotionUsers.Items.Add(competence.name);
+             });
+             this.competenceOwnedByTeacher = teacherComp;
         }
 
 
@@ -306,7 +329,7 @@ namespace CompetencesApp
         private bool TeacherOwnCompetence(Teacher teacher, string competenceId)
         {
             bool contains = false;
-            if (teacher.comps == null) return false;
+            if (teacher.teacherCompetence == null) return false;
             teacher.teacherCompetence.ForEach((competence) =>
             {
                 if (competence._id == competenceId) contains = true;
@@ -328,6 +351,13 @@ namespace CompetencesApp
                     usersInPromotion.Add(selectedUser);
 
                     listBoxPromotionUsers.Items.Add(selectedUser.surname + " "+selectedUser.firstName); 
+                    break;
+                case 1:
+                    Competence selected = competenceNotOwnedByTeacher[selectedIndex];
+                    if (selected == null) return;
+                    competenceNotOwnedByTeacher.RemoveAt(selectedIndex);
+                    competenceOwnedByTeacher.Add(selected);
+                    listBoxPromotionUsers.Items.Add(selected.name);
                     break;
                 case 2:
                     Competence selectedCompetence = competenceNotInBlock[selectedIndex];
@@ -359,6 +389,13 @@ namespace CompetencesApp
 
                     listBoxNoPromotionUsers.Items.Add(selectedUser.surname + " " + selectedUser.firstName);
                     break;
+                case 1:
+                    Competence selected = competenceOwnedByTeacher[selectedIndex];
+                    if (selected == null) return;
+                    competenceOwnedByTeacher.RemoveAt(selectedIndex);
+                    competenceNotOwnedByTeacher.Add(selected);
+                    listBoxNoPromotionUsers.Items.Add(selected.name);
+                    break;
                 case 2:
                     Competence selectedCompetence = competenceInBlock[selectedIndex];
                     if (selectedCompetence == null) return;
@@ -388,6 +425,18 @@ namespace CompetencesApp
                     usersInPromotion.ForEach((user) => promoUsers.Add(user));
                     this.adminuser.promos[selectedIndex].users = promoUsers;
                     break;
+                case 1:
+                    selectedIndex = comboBoxUsers.SelectedIndex;
+                    if (selectedIndex == -1) return;
+                    User selectedUser = this.adminuser.users[selectedIndex];
+                    if (selectedUser == null) return;
+                    if (!(selectedUser is Teacher)) return;
+                    Teacher selectedTeacher = selectedUser as Teacher;
+                    await HttpRequests.PatchTeacherCompetences(selectedUser._id, this.competenceOwnedByTeacher);
+                    List<Competence> teacherCompetences = new List<Competence>();
+                    competenceOwnedByTeacher.ForEach((competence) => teacherCompetences.Add(competence));
+                    selectedTeacher.teacherCompetence = teacherCompetences;
+                    break;
                 case 2:
                     selectedIndex = comboBoxCompetenceBlock.SelectedIndex;
                     if (selectedIndex == -1) return;
@@ -404,6 +453,7 @@ namespace CompetencesApp
             }
 
         }
+
 
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -434,6 +484,28 @@ namespace CompetencesApp
                 default:
                     break;
             }
+        }
+
+        private void HideListBox()
+        {
+            listBoxNoPromotionUsers.Hide();
+            listBoxPromotionUsers.Hide();
+            removeUserPromotionButton.Hide();
+            addUserPromotionButton.Hide();
+            saveButton.Hide();
+            label1.Hide();
+            label2.Hide();
+        }
+
+        private void ShowListBox()
+        {
+            listBoxNoPromotionUsers.Show();
+            listBoxPromotionUsers.Show();
+            removeUserPromotionButton.Show();
+            addUserPromotionButton.Show();
+            saveButton.Show();
+            label1.Show();
+            label2.Show();
         }
     }
 
