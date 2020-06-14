@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form22));
             this.panelStudent = new System.Windows.Forms.Panel();
+            this.buttonPromotionCompetenceBlocks = new System.Windows.Forms.Button();
             this.buttonUser = new System.Windows.Forms.Button();
             this.buttonCompetenceBlock = new System.Windows.Forms.Button();
             this.buttonCompetence = new System.Windows.Forms.Button();
@@ -55,7 +56,8 @@
             this.removeUserPromotionButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonPromotionCompetenceBlocks = new System.Windows.Forms.Button();
+            this.labelStatut = new System.Windows.Forms.Label();
+            this.buttonDeconnection = new System.Windows.Forms.Button();
             this.panelStudent.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +79,24 @@
             this.panelStudent.Name = "panelStudent";
             this.panelStudent.Size = new System.Drawing.Size(122, 600);
             this.panelStudent.TabIndex = 18;
+            // 
+            // buttonPromotionCompetenceBlocks
+            // 
+            this.buttonPromotionCompetenceBlocks.BackColor = System.Drawing.Color.Transparent;
+            this.buttonPromotionCompetenceBlocks.FlatAppearance.BorderSize = 0;
+            this.buttonPromotionCompetenceBlocks.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.buttonPromotionCompetenceBlocks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonPromotionCompetenceBlocks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonPromotionCompetenceBlocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPromotionCompetenceBlocks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonPromotionCompetenceBlocks.ForeColor = System.Drawing.Color.DarkGray;
+            this.buttonPromotionCompetenceBlocks.Location = new System.Drawing.Point(0, 494);
+            this.buttonPromotionCompetenceBlocks.Name = "buttonPromotionCompetenceBlocks";
+            this.buttonPromotionCompetenceBlocks.Size = new System.Drawing.Size(134, 80);
+            this.buttonPromotionCompetenceBlocks.TabIndex = 32;
+            this.buttonPromotionCompetenceBlocks.Text = "Promotion  (Blocs de compétence)";
+            this.buttonPromotionCompetenceBlocks.UseVisualStyleBackColor = false;
+            this.buttonPromotionCompetenceBlocks.Click += new System.EventHandler(this.buttonPromotionCompetenceBlocks_Click);
             // 
             // buttonUser
             // 
@@ -176,6 +196,7 @@
             this.buttonProfile.Text = "Profil";
             this.buttonProfile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonProfile.UseVisualStyleBackColor = false;
+            this.buttonProfile.Click += new System.EventHandler(this.buttonProfile_Click);
             // 
             // buttonMinimize
             // 
@@ -426,29 +447,40 @@
             this.label2.TabIndex = 43;
             this.label2.Text = "Eleves dans la promotion :";
             // 
-            // buttonPromotionCompetenceBlocks
+            // labelStatut
             // 
-            this.buttonPromotionCompetenceBlocks.BackColor = System.Drawing.Color.Transparent;
-            this.buttonPromotionCompetenceBlocks.FlatAppearance.BorderSize = 0;
-            this.buttonPromotionCompetenceBlocks.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.buttonPromotionCompetenceBlocks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonPromotionCompetenceBlocks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonPromotionCompetenceBlocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPromotionCompetenceBlocks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonPromotionCompetenceBlocks.ForeColor = System.Drawing.Color.DarkGray;
-            this.buttonPromotionCompetenceBlocks.Location = new System.Drawing.Point(0, 494);
-            this.buttonPromotionCompetenceBlocks.Name = "buttonPromotionCompetenceBlocks";
-            this.buttonPromotionCompetenceBlocks.Size = new System.Drawing.Size(134, 80);
-            this.buttonPromotionCompetenceBlocks.TabIndex = 32;
-            this.buttonPromotionCompetenceBlocks.Text = "Promotion  (Blocs de compétence)";
-            this.buttonPromotionCompetenceBlocks.UseVisualStyleBackColor = false;
-            this.buttonPromotionCompetenceBlocks.Click += new System.EventHandler(this.buttonPromotionCompetenceBlocks_Click);
+            this.labelStatut.AutoSize = true;
+            this.labelStatut.BackColor = System.Drawing.Color.Transparent;
+            this.labelStatut.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.labelStatut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.labelStatut.Location = new System.Drawing.Point(148, 133);
+            this.labelStatut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelStatut.Name = "labelStatut";
+            this.labelStatut.Size = new System.Drawing.Size(276, 32);
+            this.labelStatut.TabIndex = 45;
+            this.labelStatut.Text = "Statut : Administrateur";
+            // 
+            // buttonDeconnection
+            // 
+            this.buttonDeconnection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.buttonDeconnection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeconnection.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonDeconnection.ForeColor = System.Drawing.Color.White;
+            this.buttonDeconnection.Location = new System.Drawing.Point(153, 538);
+            this.buttonDeconnection.Name = "buttonDeconnection";
+            this.buttonDeconnection.Size = new System.Drawing.Size(827, 40);
+            this.buttonDeconnection.TabIndex = 44;
+            this.buttonDeconnection.Text = "Déconnexion";
+            this.buttonDeconnection.UseVisualStyleBackColor = false;
+            this.buttonDeconnection.Click += new System.EventHandler(this.buttonDeconnection_Click);
             // 
             // Form22
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.Controls.Add(this.labelStatut);
+            this.Controls.Add(this.buttonDeconnection);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.removeUserPromotionButton);
@@ -503,5 +535,7 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonPromotionCompetenceBlocks;
+        private System.Windows.Forms.Label labelStatut;
+        private System.Windows.Forms.Button buttonDeconnection;
     }
 }

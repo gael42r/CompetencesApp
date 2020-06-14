@@ -116,6 +116,22 @@ namespace CompetencesApp
             labelCombo.Text = "Compétences : ";
         }
 
+        private void ShowProfile()
+        {
+            labelStatut.Show();
+            buttonDeconnection.Show();
+            addButton.Hide();
+            deleteButton.Hide();
+        }
+
+        private void HideProfile()
+        {
+            labelStatut.Hide();
+            buttonDeconnection.Hide();
+            addButton.Show();
+            deleteButton.Show();
+        }
+
 
         private void HideAll()
         {
@@ -132,6 +148,7 @@ namespace CompetencesApp
 
             comboBoxCompetences.Hide();
 
+            HideProfile();
         }
         private void buttonClose_Click(object sender, EventArgs e)
         {
@@ -585,6 +602,17 @@ namespace CompetencesApp
 
             HideAll();
             ShowPromotionCompetenceBlock();
+        }
+
+        private void buttonProfile_Click(object sender, EventArgs e)
+        {
+            HideAll();
+            ShowProfile();
+        }
+
+        private void buttonDeconnection_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 
