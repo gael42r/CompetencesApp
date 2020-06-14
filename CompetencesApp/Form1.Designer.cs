@@ -37,6 +37,7 @@
             this.labelPassword = new System.Windows.Forms.Label();
             this.buttonSignIn = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.labelError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panelLogo
@@ -140,12 +141,25 @@
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.BackColor = System.Drawing.Color.Transparent;
+            this.labelError.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError.ForeColor = System.Drawing.Color.Firebrick;
+            this.labelError.Location = new System.Drawing.Point(507, 309);
+            this.labelError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 17);
+            this.labelError.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSignIn);
             this.Controls.Add(this.labelPassword);
@@ -176,6 +190,7 @@
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Button buttonSignIn;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Label labelError;
     }
 }
 

@@ -26,45 +26,54 @@ namespace CompetencesApp
 
         private async void buttonSignIn_Click(object sender, EventArgs e)
         {
-            var userlogin = await HttpRequests.UserLogin(textBoxUser.Text, textBoxPassword.Text);
-            this.Hide();
-
-
-            if (userlogin is Admin)
+            try
             {
-                //On lance la form admin
-                Form22 adminform = new Form22(userlogin);
-                this.Close();
-                try
+                labelError.Text = "";
+                var userlogin = await HttpRequests.UserLogin(textBoxUser.Text, textBoxPassword.Text);
+                this.Hide();
+
+                if (userlogin is Admin)
                 {
-                    adminform.ShowDialog();
+                    //On lance la form admin
+                    Form22 adminform = new Form22(userlogin);
+                    this.Close();
+                    try
+                    {
+                        adminform.ShowDialog();
+                    }
+                    catch
+                    {
+
+                    }
                 }
-                catch { 
-                
+                else if (userlogin is Teacher)
+                {
+                    Form23 studentform = new Form23(userlogin);
+                    this.Close();
+                    try
+                    {
+                        studentform.ShowDialog();
+                    }
+                    catch { }
+
+                }
+                else
+                {
+                    //On lance la form élève
+                    Form21 studentform = new Form21(userlogin);
+                    this.Close();
+                    try
+                    {
+                        studentform.ShowDialog();
+                    }
+                    catch { }
                 }
             }
-            else if (userlogin is Teacher)
+            catch
             {
-                Form23 studentform = new Form23(userlogin);
-                this.Close();
-                try
-                {
-                    studentform.ShowDialog();
-                }
-                catch { }
-
+                labelError.Text = "Identifiant ou mot de passe incorrect.";
             }
-            else
-            {
-                //On lance la form élève
-                Form21 studentform = new Form21(userlogin);
-                this.Close();
-                try
-                {
-                    studentform.ShowDialog();
-                }
-                catch { }
-            }
+              
         }
     }
 }
