@@ -50,7 +50,7 @@ namespace CompetencesApp
 
 
             HideAll();
-            ShowPromotions();
+            ShowUsers();
 
             this.ShowDialog();
         }
@@ -65,7 +65,7 @@ namespace CompetencesApp
             labelCombo.Text = "Promotion"; // Je pense que c'est + pertinent de changer le nom ici car ça ne change jamais de pos
 
             label1.Text = "Élèves";
-            label2.Text = "Élèves appartenant à la promotion";
+            label2.Text = "Élèves de la promotion";
         }
 
         private void ShowPromotionCompetenceBlock()
@@ -78,7 +78,7 @@ namespace CompetencesApp
             labelCombo.Text = "Promotion";
 
             label1.Text = "Blocs de compétences";
-            label2.Text = "Blocs de compétences appartenant à la promotion";
+            label2.Text = "Blocs de la promotion";
         }
         private void ShowUsers()
         {
@@ -102,7 +102,7 @@ namespace CompetencesApp
 
             labelCombo.Text = "Blocs de compétence";
             label1.Text = "Compétences";
-            label2.Text = "Compétences appartenant au bloc";
+            label2.Text = "Compétences du bloc";
 
         }
 

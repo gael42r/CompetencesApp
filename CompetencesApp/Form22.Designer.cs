@@ -90,11 +90,11 @@
             this.buttonPromotionCompetenceBlocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPromotionCompetenceBlocks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonPromotionCompetenceBlocks.ForeColor = System.Drawing.Color.DarkGray;
-            this.buttonPromotionCompetenceBlocks.Location = new System.Drawing.Point(0, 494);
+            this.buttonPromotionCompetenceBlocks.Location = new System.Drawing.Point(0, 425);
             this.buttonPromotionCompetenceBlocks.Name = "buttonPromotionCompetenceBlocks";
-            this.buttonPromotionCompetenceBlocks.Size = new System.Drawing.Size(134, 80);
+            this.buttonPromotionCompetenceBlocks.Size = new System.Drawing.Size(122, 80);
             this.buttonPromotionCompetenceBlocks.TabIndex = 32;
-            this.buttonPromotionCompetenceBlocks.Text = "Promotion  (Blocs de compétence)";
+            this.buttonPromotionCompetenceBlocks.Text = "Promotions et blocs";
             this.buttonPromotionCompetenceBlocks.UseVisualStyleBackColor = false;
             this.buttonPromotionCompetenceBlocks.Click += new System.EventHandler(this.buttonPromotionCompetenceBlocks_Click);
             // 
@@ -108,7 +108,7 @@
             this.buttonUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonUser.ForeColor = System.Drawing.Color.DarkGray;
-            this.buttonUser.Location = new System.Drawing.Point(0, 207);
+            this.buttonUser.Location = new System.Drawing.Point(0, 121);
             this.buttonUser.Name = "buttonUser";
             this.buttonUser.Size = new System.Drawing.Size(122, 80);
             this.buttonUser.TabIndex = 31;
@@ -126,11 +126,11 @@
             this.buttonCompetenceBlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCompetenceBlock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonCompetenceBlock.ForeColor = System.Drawing.Color.DarkGray;
-            this.buttonCompetenceBlock.Location = new System.Drawing.Point(0, 302);
+            this.buttonCompetenceBlock.Location = new System.Drawing.Point(0, 349);
             this.buttonCompetenceBlock.Name = "buttonCompetenceBlock";
             this.buttonCompetenceBlock.Size = new System.Drawing.Size(122, 80);
             this.buttonCompetenceBlock.TabIndex = 30;
-            this.buttonCompetenceBlock.Text = "Bloc de compétence";
+            this.buttonCompetenceBlock.Text = "Blocs de compétences";
             this.buttonCompetenceBlock.UseVisualStyleBackColor = false;
             this.buttonCompetenceBlock.Click += new System.EventHandler(this.buttonCompetenceBlock_Click);
             // 
@@ -144,7 +144,7 @@
             this.buttonCompetence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCompetence.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonCompetence.ForeColor = System.Drawing.Color.DarkGray;
-            this.buttonCompetence.Location = new System.Drawing.Point(0, 410);
+            this.buttonCompetence.Location = new System.Drawing.Point(0, 273);
             this.buttonCompetence.Name = "buttonCompetence";
             this.buttonCompetence.Size = new System.Drawing.Size(122, 80);
             this.buttonCompetence.TabIndex = 30;
@@ -169,11 +169,11 @@
             this.buttonPromotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPromotion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonPromotion.ForeColor = System.Drawing.Color.DarkGray;
-            this.buttonPromotion.Location = new System.Drawing.Point(0, 128);
+            this.buttonPromotion.Location = new System.Drawing.Point(0, 197);
             this.buttonPromotion.Name = "buttonPromotion";
             this.buttonPromotion.Size = new System.Drawing.Size(122, 80);
             this.buttonPromotion.TabIndex = 28;
-            this.buttonPromotion.Text = "Promotion (Élèves)";
+            this.buttonPromotion.Text = "Promotions et étudiants";
             this.buttonPromotion.UseVisualStyleBackColor = false;
             this.buttonPromotion.Click += new System.EventHandler(this.buttonPromotion_Click);
             // 
