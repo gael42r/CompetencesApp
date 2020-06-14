@@ -80,7 +80,7 @@ namespace CompetencesApp
             
             if(userComp == null)
             {
-                labelError.Text = "On cree une user competence";
+               // labelError.Text = "On cree une user competence";
                 userComp = await HttpRequests.PostCompetenceId(competences[listBoxCompetences.SelectedIndex]._id, studentuser._id);
                 studentuser.comps.Add(userComp); //faire pareil pour preuves
                 //users/:id/competences   et tu fournis competenceId -> competences[listBoxCompetences.SelectedIndex]._id";

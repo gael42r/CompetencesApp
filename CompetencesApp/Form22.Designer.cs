@@ -55,6 +55,7 @@
             this.removeUserPromotionButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonPromotionCompetenceBlocks = new System.Windows.Forms.Button();
             this.panelStudent.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +64,7 @@
             // 
             this.panelStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.panelStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelStudent.Controls.Add(this.buttonPromotionCompetenceBlocks);
             this.panelStudent.Controls.Add(this.buttonUser);
             this.panelStudent.Controls.Add(this.buttonCompetenceBlock);
             this.panelStudent.Controls.Add(this.buttonCompetence);
@@ -151,7 +153,7 @@
             this.buttonPromotion.Name = "buttonPromotion";
             this.buttonPromotion.Size = new System.Drawing.Size(122, 80);
             this.buttonPromotion.TabIndex = 28;
-            this.buttonPromotion.Text = "Promotion";
+            this.buttonPromotion.Text = "Promotion (Élèves)";
             this.buttonPromotion.UseVisualStyleBackColor = false;
             this.buttonPromotion.Click += new System.EventHandler(this.buttonPromotion_Click);
             // 
@@ -269,7 +271,6 @@
             this.comboBoxUsers.Size = new System.Drawing.Size(759, 38);
             this.comboBoxUsers.TabIndex = 28;
             this.comboBoxUsers.SelectedIndexChanged += new System.EventHandler(this.comboBoxUsers_SelectedIndexChanged);
-
             // 
             // comboBoxCompetenceBlock
             // 
@@ -282,7 +283,6 @@
             this.comboBoxCompetenceBlock.Size = new System.Drawing.Size(759, 38);
             this.comboBoxCompetenceBlock.TabIndex = 30;
             this.comboBoxCompetenceBlock.SelectedIndexChanged += new System.EventHandler(this.comboBoxCompetenceBlock_SelectedIndexChanged);
-            
             // 
             // labelCombo
             // 
@@ -426,6 +426,24 @@
             this.label2.TabIndex = 43;
             this.label2.Text = "Eleves dans la promotion :";
             // 
+            // buttonPromotionCompetenceBlocks
+            // 
+            this.buttonPromotionCompetenceBlocks.BackColor = System.Drawing.Color.Transparent;
+            this.buttonPromotionCompetenceBlocks.FlatAppearance.BorderSize = 0;
+            this.buttonPromotionCompetenceBlocks.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.buttonPromotionCompetenceBlocks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonPromotionCompetenceBlocks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonPromotionCompetenceBlocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPromotionCompetenceBlocks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonPromotionCompetenceBlocks.ForeColor = System.Drawing.Color.DarkGray;
+            this.buttonPromotionCompetenceBlocks.Location = new System.Drawing.Point(0, 494);
+            this.buttonPromotionCompetenceBlocks.Name = "buttonPromotionCompetenceBlocks";
+            this.buttonPromotionCompetenceBlocks.Size = new System.Drawing.Size(134, 80);
+            this.buttonPromotionCompetenceBlocks.TabIndex = 32;
+            this.buttonPromotionCompetenceBlocks.Text = "Promotion  (Blocs de compétence)";
+            this.buttonPromotionCompetenceBlocks.UseVisualStyleBackColor = false;
+            this.buttonPromotionCompetenceBlocks.Click += new System.EventHandler(this.buttonPromotionCompetenceBlocks_Click);
+            // 
             // Form22
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,5 +502,6 @@
         private System.Windows.Forms.Button removeUserPromotionButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonPromotionCompetenceBlocks;
     }
 }
