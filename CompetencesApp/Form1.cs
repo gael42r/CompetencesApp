@@ -72,6 +72,8 @@ namespace CompetencesApp
             catch
             {
                 labelError.Text = "Identifiant ou mot de passe incorrect.";
+                textBoxUser.Clear();
+                textBoxPassword.Clear();
             }
               
         }
