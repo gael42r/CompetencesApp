@@ -517,7 +517,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelStudent);
             this.Name = "Form22";
-            this.Text = "Form22";
+            this.Text = "Competences";
             this.panelStudent.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

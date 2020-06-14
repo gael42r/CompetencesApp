@@ -159,7 +159,7 @@
             this.Controls.Add(this.labelNom);
             this.Controls.Add(this.panel2);
             this.Name = "FormAddCompetence";
-            this.Text = "FormAddCompetence";
+            this.Text = "Competences";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);

@@ -246,7 +246,7 @@
             this.Controls.Add(this.labelPrenom);
             this.Controls.Add(this.panel2);
             this.Name = "FormAddUser";
-            this.Text = "FormAddUser";
+            this.Text = "Competences";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
