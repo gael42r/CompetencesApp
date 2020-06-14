@@ -24,6 +24,9 @@ namespace CompetencesApp
         private List<Competence> competenceOwnedByTeacher = new List<Competence>();
         private List<Competence> competenceNotOwnedByTeacher = new List<Competence>();
 
+        private List<CompetenceBlock> blockNotInPromotion = new List<CompetenceBlock>();
+        private List<CompetenceBlock> blockInPromotion = new List<CompetenceBlock>();
+
 
         public Form22(Admin adminuser)
         {
@@ -63,6 +66,19 @@ namespace CompetencesApp
 
             label1.Text = "Élèves  :";
             label2.Text = "Élèves appartenant à la promotion :";
+        }
+
+        private void ShowPromotionCompetenceBlock()
+        {
+            comboBoxPromotion.Show();
+
+            ShowListBox();
+            currentWindow = 4;
+            comboBoxPromotion.SelectedIndex = -1;
+            labelCombo.Text = "Promotion : ";
+
+            label1.Text = "Blocs de compétences  :";
+            label2.Text = "Blocs de compétences appartenant à la promotion :";
         }
         private void ShowUsers()
         {
@@ -159,6 +175,7 @@ namespace CompetencesApp
             switch (this.currentWindow)
             {
                 case 0:
+                case 4:
                     selectedIndex = comboBoxPromotion.SelectedIndex;
                     if (selectedIndex == -1) return;
                     var selectedPromotion = this.adminuser.promos[selectedIndex];
@@ -252,21 +269,41 @@ namespace CompetencesApp
             Promotion selectedPromotion = this.adminuser.promos[selectedIndex];
             if (selectedPromotion == null) return;
 
-            List<User> userNotInPromotion = new List<User>();
-
-            this.adminuser.users.ForEach((user) =>
-            {
-                if (!PromotionContainsUser(selectedPromotion, user._id) && !(user.isAdmin|| user.isTeacher)) userNotInPromotion.Add(user);
-            });
             listBoxNoPromotionUsers.Items.Clear();
             listBoxPromotionUsers.Items.Clear();
+            switch (currentWindow)
+            {
+                case 0:
+                    List<User> userNotInPromotion = new List<User>();
+                    this.adminuser.users.ForEach((user) =>
+                    {
+                        if (!PromotionContainsUser(selectedPromotion, user._id) && !(user.isAdmin || user.isTeacher)) userNotInPromotion.Add(user);
+                    });
+                    userNotInPromotion.ForEach((user) => listBoxNoPromotionUsers.Items.Add(user.surname + " " + user.firstName));
+                    selectedPromotion.users.ForEach((user) => listBoxPromotionUsers.Items.Add(user.surname + " " + user.firstName));
+                    this.usersNotInPromotion = userNotInPromotion;
+                    List<User> promotionUsers = new List<User>();
+                    selectedPromotion.users.ForEach((user) => promotionUsers.Add(user));
+                    this.usersInPromotion = promotionUsers;
+                    break;
+                case 4:
+                    List<CompetenceBlock> blockNotInPromotion = new List<CompetenceBlock>();
+                    List<CompetenceBlock> blockInPromotion = new List<CompetenceBlock>();
 
-            userNotInPromotion.ForEach((user) => listBoxNoPromotionUsers.Items.Add(user.surname + " " + user.firstName));
-            selectedPromotion.users.ForEach((user) => listBoxPromotionUsers.Items.Add(user.surname + " " + user.firstName));
-            this.usersNotInPromotion = userNotInPromotion;
-            List<User> promotionUsers = new List<User>(); // On fait copy sinon assignation = reference
-            selectedPromotion.users.ForEach((user) => promotionUsers.Add(user));
-            this.usersInPromotion = promotionUsers;
+                    this.adminuser.competenceblocks.ForEach((block) =>
+                    {
+                        if (PromotionContainsBlock(selectedPromotion, block._id)) blockInPromotion.Add(block);
+                        else blockNotInPromotion.Add(block);
+                    });
+                    blockNotInPromotion.ForEach((block) => listBoxNoPromotionUsers.Items.Add(block.name));
+                    blockInPromotion.ForEach((block) => listBoxPromotionUsers.Items.Add(block.name));
+                    this.blockNotInPromotion = blockNotInPromotion;
+                    this.blockInPromotion = blockInPromotion;
+                    break;
+                default:
+                    break;
+            }
+
 
         }
 
@@ -311,6 +348,17 @@ namespace CompetencesApp
             promo.users.ForEach((promoUser) =>
             {
                 if (promoUser._id == userId) contains = true;
+            });
+            return contains;
+        }
+
+        private bool PromotionContainsBlock(Promotion promo, string userId)
+        {
+            bool contains = false;
+            if (promo.competenceBlock == null) return false;
+            promo.competenceBlock.ForEach((block) =>
+            {
+                if (block == userId) contains = true;
             });
             return contains;
         }
@@ -364,8 +412,14 @@ namespace CompetencesApp
                     if (selectedCompetence == null) return;
                     competenceNotInBlock.RemoveAt(selectedIndex);
                     competenceInBlock.Add(selectedCompetence);
-
                     listBoxPromotionUsers.Items.Add(selectedCompetence.name);
+                    break;
+                case 4:
+                    CompetenceBlock selectedBlock = blockNotInPromotion[selectedIndex];
+                    if (selectedBlock == null) return;
+                    blockNotInPromotion.RemoveAt(selectedIndex);
+                    blockInPromotion.Add(selectedBlock);
+                    listBoxPromotionUsers.Items.Add(selectedBlock.name);
                     break;
                 default:
                     return;
@@ -402,6 +456,13 @@ namespace CompetencesApp
                     competenceInBlock.RemoveAt(selectedIndex);
                     competenceNotInBlock.Add(selectedCompetence);
                     listBoxNoPromotionUsers.Items.Add(selectedCompetence.name);
+                    break;
+                case 4:
+                    CompetenceBlock selectedBlock = blockInPromotion[selectedIndex];
+                    if (selectedBlock == null) return;
+                    blockInPromotion.RemoveAt(selectedIndex);
+                    blockNotInPromotion.Add(selectedBlock);
+                    listBoxNoPromotionUsers.Items.Add(selectedBlock.name);
                     break;
                 default:
                     return;
@@ -447,6 +508,16 @@ namespace CompetencesApp
                     competenceInBlock.ForEach((competence) => competences.Add(competence));
                     this.adminuser.competenceblocks[selectedIndex].competence = competences;
                     break;
+                case 4:
+                    selectedIndex = comboBoxPromotion.SelectedIndex;
+                    if (selectedIndex == -1) return;
+                    Promotion selectedPromotion1 = this.adminuser.promos[selectedIndex];
+                    if (selectedPromotion1 == null) return;
+                    await HttpRequests.PatchPromotionCompetenceBlocks(selectedPromotion1._id, blockInPromotion);
+                    List<string> competenceBlocks = new List<string>();
+                    blockInPromotion.ForEach((competenceblock) => competenceBlocks.Add(competenceblock._id));
+                    selectedPromotion1.competenceBlock = competenceBlocks;
+                    break;
                 default:
 
                     break;
@@ -462,6 +533,7 @@ namespace CompetencesApp
                 case -1:
                     break;
                 case 0:
+                case 4:
                     // Add promotion
                     FormAddPromotion addpromotion = new FormAddPromotion(this.adminuser,comboBoxPromotion);
                     addpromotion.ShowDialog();
@@ -506,6 +578,13 @@ namespace CompetencesApp
             saveButton.Show();
             label1.Show();
             label2.Show();
+        }
+
+        private void buttonPromotionCompetenceBlocks_Click(object sender, EventArgs e)
+        {
+
+            HideAll();
+            ShowPromotionCompetenceBlock();
         }
     }
 

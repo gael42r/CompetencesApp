@@ -13,6 +13,7 @@ namespace CompetencesApp
 
         public List<User> users { get; set; }
 
+        public List<string> competenceBlock { get; set; }
     }
 
 

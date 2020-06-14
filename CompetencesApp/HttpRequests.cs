@@ -110,7 +110,7 @@ namespace CompetencesApp
             List<User> other_list = new List<User>();
             return other_list;
         }
-
+        
         public static async Task<Promotion> PatchPromotionUsers(string promotionId, List<User> users)
         {
 
@@ -137,6 +137,31 @@ namespace CompetencesApp
 
             var promotion = await response.Content.ReadAsAsync<Promotion>();
             return promotion;
+        }
+        public static async Task<bool> PatchPromotionCompetenceBlocks(string promotionId, List<CompetenceBlock> competenceBlocks)
+        {
+
+            string payload;
+
+
+            List<string> blockId = new List<string>();
+
+            competenceBlocks.ForEach((block) => blockId.Add(block._id));
+            payload = JsonConvert.SerializeObject(new
+            {
+                competenceblocks = blockId,
+            });
+
+
+            var request = new HttpRequestMessage(HttpMethod.Put, "http://91.171.37.70:16384/promotions/" + promotionId + "/competenceblocks");
+            var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            request.Content = stringContent;
+
+
+            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+
+            return true;
         }
         public static async Task<CompetenceBlock> PatchCompetenceBlockCompetence(string blockId, List<Competence> competences)
         {
@@ -248,7 +273,16 @@ namespace CompetencesApp
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
-                var list = await content.ReadAsAsync<List<CompetenceBlock>>();
+                List<CompetenceBlock> list = new List<CompetenceBlock>();
+                try
+                {
+                    list = await content.ReadAsAsync<List<CompetenceBlock>>();
+                }
+                catch
+                {
+
+                }
+
                 return list;
             }
             List<CompetenceBlock> other_list = new List<CompetenceBlock>();
