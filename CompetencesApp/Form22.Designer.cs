@@ -42,13 +42,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelPrenom = new System.Windows.Forms.Label();
             this.labelNom = new System.Windows.Forms.Label();
+            this.comboBoxCompetences = new System.Windows.Forms.ComboBox();
+            this.comboBoxCompetenceBlock = new System.Windows.Forms.ComboBox();
             this.comboBoxPromotion = new System.Windows.Forms.ComboBox();
             this.comboBoxUsers = new System.Windows.Forms.ComboBox();
-            this.comboBoxCompetenceBlock = new System.Windows.Forms.ComboBox();
             this.labelCombo = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.comboBoxCompetences = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxNoPromotionUsers = new System.Windows.Forms.ListBox();
             this.listBoxPromotionUsers = new System.Windows.Forms.ListBox();
@@ -269,41 +269,54 @@
             this.labelNom.TabIndex = 28;
             this.labelNom.Text = "NOM";
             // 
+            // comboBoxCompetences
+            // 
+            this.comboBoxCompetences.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.comboBoxCompetences.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCompetences.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.comboBoxCompetences.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.comboBoxCompetences.FormattingEnabled = true;
+            this.comboBoxCompetences.Location = new System.Drawing.Point(150, 169);
+            this.comboBoxCompetences.Name = "comboBoxCompetences";
+            this.comboBoxCompetences.Size = new System.Drawing.Size(696, 33);
+            this.comboBoxCompetences.TabIndex = 36;
+            this.comboBoxCompetences.SelectedIndexChanged += new System.EventHandler(this.comboBoxCompetences_SelectedIndexChanged);
+            // 
+            // comboBoxCompetenceBlock
+            // 
+            this.comboBoxCompetenceBlock.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCompetenceBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.comboBoxCompetenceBlock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.comboBoxCompetenceBlock.FormattingEnabled = true;
+            this.comboBoxCompetenceBlock.Location = new System.Drawing.Point(150, 169);
+            this.comboBoxCompetenceBlock.Name = "comboBoxCompetenceBlock";
+            this.comboBoxCompetenceBlock.Size = new System.Drawing.Size(696, 33);
+            this.comboBoxCompetenceBlock.TabIndex = 30;
+            this.comboBoxCompetenceBlock.SelectedIndexChanged += new System.EventHandler(this.comboBoxCompetenceBlock_SelectedIndexChanged);
+            // 
             // comboBoxPromotion
             // 
             this.comboBoxPromotion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPromotion.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.comboBoxPromotion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.comboBoxPromotion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.comboBoxPromotion.FormattingEnabled = true;
             this.comboBoxPromotion.Location = new System.Drawing.Point(150, 169);
             this.comboBoxPromotion.Name = "comboBoxPromotion";
-            this.comboBoxPromotion.Size = new System.Drawing.Size(759, 38);
+            this.comboBoxPromotion.Size = new System.Drawing.Size(696, 33);
             this.comboBoxPromotion.TabIndex = 27;
             this.comboBoxPromotion.SelectedIndexChanged += new System.EventHandler(this.comboBoxPromotion_SelectedIndexChanged);
             // 
             // comboBoxUsers
             // 
             this.comboBoxUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxUsers.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.comboBoxUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.comboBoxUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.comboBoxUsers.FormattingEnabled = true;
-            this.comboBoxUsers.Location = new System.Drawing.Point(150, 170);
+            this.comboBoxUsers.Location = new System.Drawing.Point(150, 169);
             this.comboBoxUsers.Name = "comboBoxUsers";
-            this.comboBoxUsers.Size = new System.Drawing.Size(759, 38);
+            this.comboBoxUsers.Size = new System.Drawing.Size(696, 33);
             this.comboBoxUsers.TabIndex = 28;
             this.comboBoxUsers.SelectedIndexChanged += new System.EventHandler(this.comboBoxUsers_SelectedIndexChanged);
-            // 
-            // comboBoxCompetenceBlock
-            // 
-            this.comboBoxCompetenceBlock.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCompetenceBlock.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.comboBoxCompetenceBlock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.comboBoxCompetenceBlock.FormattingEnabled = true;
-            this.comboBoxCompetenceBlock.Location = new System.Drawing.Point(150, 170);
-            this.comboBoxCompetenceBlock.Name = "comboBoxCompetenceBlock";
-            this.comboBoxCompetenceBlock.Size = new System.Drawing.Size(759, 38);
-            this.comboBoxCompetenceBlock.TabIndex = 30;
-            this.comboBoxCompetenceBlock.SelectedIndexChanged += new System.EventHandler(this.comboBoxCompetenceBlock_SelectedIndexChanged);
             // 
             // labelCombo
             // 
@@ -311,50 +324,43 @@
             this.labelCombo.BackColor = System.Drawing.Color.Transparent;
             this.labelCombo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCombo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelCombo.Location = new System.Drawing.Point(149, 135);
+            this.labelCombo.Location = new System.Drawing.Point(145, 135);
             this.labelCombo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCombo.Name = "labelCombo";
-            this.labelCombo.Size = new System.Drawing.Size(131, 30);
+            this.labelCombo.Size = new System.Drawing.Size(119, 30);
             this.labelCombo.TabIndex = 26;
-            this.labelCombo.Text = "Promotion :";
+            this.labelCombo.Text = "Promotion";
             // 
             // addButton
             // 
-            this.addButton.BackColor = System.Drawing.Color.Lime;
+            this.addButton.BackColor = System.Drawing.Color.Transparent;
+            this.addButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addButton.BackgroundImage")));
+            this.addButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.addButton.FlatAppearance.BorderSize = 0;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.addButton.Location = new System.Drawing.Point(924, 168);
+            this.addButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.addButton.Location = new System.Drawing.Point(884, 162);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(33, 40);
+            this.addButton.Size = new System.Drawing.Size(40, 40);
             this.addButton.TabIndex = 34;
-            this.addButton.Text = "+";
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // deleteButton
             // 
-            this.deleteButton.BackColor = System.Drawing.Color.Red;
+            this.deleteButton.BackColor = System.Drawing.Color.Transparent;
+            this.deleteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("deleteButton.BackgroundImage")));
+            this.deleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.deleteButton.FlatAppearance.BorderSize = 0;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.deleteButton.Location = new System.Drawing.Point(967, 168);
+            this.deleteButton.Location = new System.Drawing.Point(930, 162);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(33, 40);
+            this.deleteButton.Size = new System.Drawing.Size(40, 40);
             this.deleteButton.TabIndex = 35;
-            this.deleteButton.Text = "-";
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
-            // comboBoxCompetences
-            // 
-            this.comboBoxCompetences.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCompetences.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.comboBoxCompetences.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.comboBoxCompetences.FormattingEnabled = true;
-            this.comboBoxCompetences.Location = new System.Drawing.Point(150, 170);
-            this.comboBoxCompetences.Name = "comboBoxCompetences";
-            this.comboBoxCompetences.Size = new System.Drawing.Size(759, 38);
-            this.comboBoxCompetences.TabIndex = 36;
-            this.comboBoxCompetences.SelectedIndexChanged += new System.EventHandler(this.comboBoxCompetences_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -362,73 +368,79 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.label1.Location = new System.Drawing.Point(149, 270);
+            this.label1.Location = new System.Drawing.Point(145, 210);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 30);
+            this.label1.Size = new System.Drawing.Size(72, 30);
             this.label1.TabIndex = 37;
-            this.label1.Text = "Eleves :";
+            this.label1.Text = "Eleves";
             // 
             // listBoxNoPromotionUsers
             // 
             this.listBoxNoPromotionUsers.BackColor = System.Drawing.Color.DarkGray;
             this.listBoxNoPromotionUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxNoPromotionUsers.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxNoPromotionUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.listBoxNoPromotionUsers.ForeColor = System.Drawing.Color.White;
             this.listBoxNoPromotionUsers.FormattingEnabled = true;
-            this.listBoxNoPromotionUsers.ItemHeight = 17;
-            this.listBoxNoPromotionUsers.Location = new System.Drawing.Point(154, 302);
+            this.listBoxNoPromotionUsers.ItemHeight = 25;
+            this.listBoxNoPromotionUsers.Location = new System.Drawing.Point(150, 243);
             this.listBoxNoPromotionUsers.Name = "listBoxNoPromotionUsers";
-            this.listBoxNoPromotionUsers.Size = new System.Drawing.Size(322, 272);
+            this.listBoxNoPromotionUsers.Size = new System.Drawing.Size(363, 275);
             this.listBoxNoPromotionUsers.TabIndex = 38;
             // 
             // listBoxPromotionUsers
             // 
             this.listBoxPromotionUsers.BackColor = System.Drawing.Color.DarkGray;
             this.listBoxPromotionUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxPromotionUsers.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxPromotionUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.listBoxPromotionUsers.ForeColor = System.Drawing.Color.White;
             this.listBoxPromotionUsers.FormattingEnabled = true;
-            this.listBoxPromotionUsers.ItemHeight = 17;
-            this.listBoxPromotionUsers.Location = new System.Drawing.Point(631, 302);
+            this.listBoxPromotionUsers.ItemHeight = 25;
+            this.listBoxPromotionUsers.Location = new System.Drawing.Point(607, 243);
             this.listBoxPromotionUsers.Name = "listBoxPromotionUsers";
-            this.listBoxPromotionUsers.Size = new System.Drawing.Size(326, 272);
+            this.listBoxPromotionUsers.Size = new System.Drawing.Size(363, 275);
             this.listBoxPromotionUsers.TabIndex = 39;
             // 
             // addUserPromotionButton
             // 
-            this.addUserPromotionButton.BackColor = System.Drawing.Color.Lime;
+            this.addUserPromotionButton.BackColor = System.Drawing.Color.Transparent;
+            this.addUserPromotionButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addUserPromotionButton.BackgroundImage")));
+            this.addUserPromotionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.addUserPromotionButton.FlatAppearance.BorderSize = 0;
             this.addUserPromotionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addUserPromotionButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.addUserPromotionButton.Location = new System.Drawing.Point(537, 302);
+            this.addUserPromotionButton.Location = new System.Drawing.Point(543, 302);
             this.addUserPromotionButton.Name = "addUserPromotionButton";
-            this.addUserPromotionButton.Size = new System.Drawing.Size(49, 40);
+            this.addUserPromotionButton.Size = new System.Drawing.Size(40, 40);
             this.addUserPromotionButton.TabIndex = 40;
-            this.addUserPromotionButton.Text = "->";
             this.addUserPromotionButton.UseVisualStyleBackColor = false;
             this.addUserPromotionButton.Click += new System.EventHandler(this.addUserPromotionButton_Click);
             // 
             // removeUserPromotionButton
             // 
-            this.removeUserPromotionButton.BackColor = System.Drawing.Color.Lime;
+            this.removeUserPromotionButton.BackColor = System.Drawing.Color.Transparent;
+            this.removeUserPromotionButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("removeUserPromotionButton.BackgroundImage")));
+            this.removeUserPromotionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.removeUserPromotionButton.FlatAppearance.BorderSize = 0;
             this.removeUserPromotionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeUserPromotionButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.removeUserPromotionButton.Location = new System.Drawing.Point(537, 395);
+            this.removeUserPromotionButton.Location = new System.Drawing.Point(543, 348);
             this.removeUserPromotionButton.Name = "removeUserPromotionButton";
-            this.removeUserPromotionButton.Size = new System.Drawing.Size(49, 40);
+            this.removeUserPromotionButton.Size = new System.Drawing.Size(40, 40);
             this.removeUserPromotionButton.TabIndex = 41;
-            this.removeUserPromotionButton.Text = "<-";
             this.removeUserPromotionButton.UseVisualStyleBackColor = false;
             this.removeUserPromotionButton.Click += new System.EventHandler(this.removeUserPromotionButton_Click);
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.Lime;
+            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.saveButton.FlatAppearance.BorderSize = 0;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.saveButton.Location = new System.Drawing.Point(493, 522);
+            this.saveButton.ForeColor = System.Drawing.Color.White;
+            this.saveButton.Location = new System.Drawing.Point(150, 548);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(120, 52);
+            this.saveButton.Size = new System.Drawing.Size(820, 40);
             this.saveButton.TabIndex = 42;
             this.saveButton.Text = "Sauvegarder";
             this.saveButton.UseVisualStyleBackColor = false;
@@ -440,35 +452,36 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.label2.Location = new System.Drawing.Point(626, 269);
+            this.label2.Location = new System.Drawing.Point(602, 210);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(271, 30);
+            this.label2.Size = new System.Drawing.Size(259, 30);
             this.label2.TabIndex = 43;
-            this.label2.Text = "Eleves dans la promotion :";
+            this.label2.Text = "Eleves dans la promotion";
             // 
             // labelStatut
             // 
             this.labelStatut.AutoSize = true;
             this.labelStatut.BackColor = System.Drawing.Color.Transparent;
-            this.labelStatut.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.labelStatut.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelStatut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelStatut.Location = new System.Drawing.Point(148, 133);
+            this.labelStatut.Location = new System.Drawing.Point(145, 135);
             this.labelStatut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelStatut.Name = "labelStatut";
-            this.labelStatut.Size = new System.Drawing.Size(276, 32);
+            this.labelStatut.Size = new System.Drawing.Size(238, 30);
             this.labelStatut.TabIndex = 45;
             this.labelStatut.Text = "Statut : Administrateur";
             // 
             // buttonDeconnection
             // 
             this.buttonDeconnection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.buttonDeconnection.FlatAppearance.BorderSize = 0;
             this.buttonDeconnection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeconnection.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonDeconnection.ForeColor = System.Drawing.Color.White;
-            this.buttonDeconnection.Location = new System.Drawing.Point(153, 538);
+            this.buttonDeconnection.Location = new System.Drawing.Point(150, 548);
             this.buttonDeconnection.Name = "buttonDeconnection";
-            this.buttonDeconnection.Size = new System.Drawing.Size(827, 40);
+            this.buttonDeconnection.Size = new System.Drawing.Size(820, 40);
             this.buttonDeconnection.TabIndex = 44;
             this.buttonDeconnection.Text = "Déconnexion";
             this.buttonDeconnection.UseVisualStyleBackColor = false;
@@ -483,17 +496,17 @@
             this.Controls.Add(this.buttonDeconnection);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.comboBoxCompetences);
             this.Controls.Add(this.removeUserPromotionButton);
+            this.Controls.Add(this.comboBoxPromotion);
+            this.Controls.Add(this.comboBoxCompetenceBlock);
             this.Controls.Add(this.addUserPromotionButton);
             this.Controls.Add(this.listBoxPromotionUsers);
             this.Controls.Add(this.listBoxNoPromotionUsers);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBoxCompetences);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.comboBoxCompetenceBlock);
             this.Controls.Add(this.comboBoxUsers);
-            this.Controls.Add(this.comboBoxPromotion);
             this.Controls.Add(this.labelCombo);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelStudent);

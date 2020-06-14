@@ -213,12 +213,12 @@
             // comboBoxCompetences
             // 
             this.comboBoxCompetences.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCompetences.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.comboBoxCompetences.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.comboBoxCompetences.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.comboBoxCompetences.FormattingEnabled = true;
-            this.comboBoxCompetences.Location = new System.Drawing.Point(150, 168);
+            this.comboBoxCompetences.Location = new System.Drawing.Point(150, 169);
             this.comboBoxCompetences.Name = "comboBoxCompetences";
-            this.comboBoxCompetences.Size = new System.Drawing.Size(827, 38);
+            this.comboBoxCompetences.Size = new System.Drawing.Size(827, 33);
             this.comboBoxCompetences.TabIndex = 26;
             this.comboBoxCompetences.SelectedIndexChanged += new System.EventHandler(this.comboBoxCompetences_SelectedIndexChanged);
             // 
@@ -226,76 +226,79 @@
             // 
             this.listBoxStudent.BackColor = System.Drawing.Color.DarkGray;
             this.listBoxStudent.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxStudent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.listBoxStudent.ForeColor = System.Drawing.Color.White;
             this.listBoxStudent.FormattingEnabled = true;
-            this.listBoxStudent.ItemHeight = 17;
-            this.listBoxStudent.Location = new System.Drawing.Point(150, 248);
+            this.listBoxStudent.ItemHeight = 25;
+            this.listBoxStudent.Location = new System.Drawing.Point(150, 243);
             this.listBoxStudent.Name = "listBoxStudent";
-            this.listBoxStudent.Size = new System.Drawing.Size(827, 272);
+            this.listBoxStudent.Size = new System.Drawing.Size(820, 275);
             this.listBoxStudent.TabIndex = 33;
             // 
             // buttonValider
             // 
+            this.buttonValider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.buttonValider.FlatAppearance.BorderSize = 0;
             this.buttonValider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonValider.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonValider.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.buttonValider.Location = new System.Drawing.Point(150, 540);
+            this.buttonValider.ForeColor = System.Drawing.Color.White;
+            this.buttonValider.Location = new System.Drawing.Point(150, 548);
             this.buttonValider.Name = "buttonValider";
-            this.buttonValider.Size = new System.Drawing.Size(827, 40);
+            this.buttonValider.Size = new System.Drawing.Size(820, 40);
             this.buttonValider.TabIndex = 34;
             this.buttonValider.Text = "Valider";
-            this.buttonValider.UseVisualStyleBackColor = true;
+            this.buttonValider.UseVisualStyleBackColor = false;
             this.buttonValider.Click += new System.EventHandler(this.buttonValider_Click);
             // 
             // labelCompetences
             // 
             this.labelCompetences.AutoSize = true;
             this.labelCompetences.BackColor = System.Drawing.Color.Transparent;
-            this.labelCompetences.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.labelCompetences.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelCompetences.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelCompetences.Location = new System.Drawing.Point(145, 135);
+            this.labelCompetences.Location = new System.Drawing.Point(146, 135);
             this.labelCompetences.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCompetences.Name = "labelCompetences";
-            this.labelCompetences.Size = new System.Drawing.Size(182, 32);
+            this.labelCompetences.Size = new System.Drawing.Size(144, 30);
             this.labelCompetences.TabIndex = 35;
-            this.labelCompetences.Text = "Compétences :";
+            this.labelCompetences.Text = "Compétences";
             // 
             // labelStudent
             // 
             this.labelStudent.AutoSize = true;
             this.labelStudent.BackColor = System.Drawing.Color.Transparent;
-            this.labelStudent.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.labelStudent.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelStudent.Location = new System.Drawing.Point(145, 209);
+            this.labelStudent.Location = new System.Drawing.Point(145, 210);
             this.labelStudent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelStudent.Name = "labelStudent";
-            this.labelStudent.Size = new System.Drawing.Size(99, 32);
+            this.labelStudent.Size = new System.Drawing.Size(72, 30);
             this.labelStudent.TabIndex = 36;
-            this.labelStudent.Text = "Elèves :";
+            this.labelStudent.Text = "Elèves";
             // 
             // labelStatut
             // 
             this.labelStatut.AutoSize = true;
             this.labelStatut.BackColor = System.Drawing.Color.Transparent;
-            this.labelStatut.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.labelStatut.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelStatut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.labelStatut.Location = new System.Drawing.Point(145, 135);
             this.labelStatut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelStatut.Name = "labelStatut";
-            this.labelStatut.Size = new System.Drawing.Size(225, 32);
+            this.labelStatut.Size = new System.Drawing.Size(193, 30);
             this.labelStatut.TabIndex = 38;
             this.labelStatut.Text = "Statut : Professeur";
             // 
             // buttonDeconnection
             // 
             this.buttonDeconnection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.buttonDeconnection.FlatAppearance.BorderSize = 0;
             this.buttonDeconnection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeconnection.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonDeconnection.ForeColor = System.Drawing.Color.White;
-            this.buttonDeconnection.Location = new System.Drawing.Point(150, 540);
+            this.buttonDeconnection.Location = new System.Drawing.Point(150, 548);
             this.buttonDeconnection.Name = "buttonDeconnection";
-            this.buttonDeconnection.Size = new System.Drawing.Size(827, 40);
+            this.buttonDeconnection.Size = new System.Drawing.Size(820, 40);
             this.buttonDeconnection.TabIndex = 37;
             this.buttonDeconnection.Text = "Déconnexion";
             this.buttonDeconnection.UseVisualStyleBackColor = false;
@@ -304,63 +307,63 @@
             // textBoxResource
             // 
             this.textBoxResource.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxResource.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.textBoxResource.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.textBoxResource.Location = new System.Drawing.Point(150, 248);
+            this.textBoxResource.Location = new System.Drawing.Point(150, 243);
             this.textBoxResource.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxResource.Name = "textBoxResource";
-            this.textBoxResource.Size = new System.Drawing.Size(265, 18);
+            this.textBoxResource.Size = new System.Drawing.Size(766, 23);
             this.textBoxResource.TabIndex = 44;
             // 
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
             this.labelDescription.BackColor = System.Drawing.Color.Transparent;
-            this.labelDescription.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.labelDescription.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelDescription.Location = new System.Drawing.Point(144, 268);
+            this.labelDescription.Location = new System.Drawing.Point(145, 270);
             this.labelDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(161, 32);
+            this.labelDescription.Size = new System.Drawing.Size(125, 30);
             this.labelDescription.TabIndex = 46;
-            this.labelDescription.Text = "Description :";
+            this.labelDescription.Text = "Description";
             // 
             // labelResourceTitle
             // 
             this.labelResourceTitle.AutoSize = true;
             this.labelResourceTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelResourceTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.labelResourceTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelResourceTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelResourceTitle.Location = new System.Drawing.Point(145, 209);
+            this.labelResourceTitle.Location = new System.Drawing.Point(145, 210);
             this.labelResourceTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelResourceTitle.Name = "labelResourceTitle";
-            this.labelResourceTitle.Size = new System.Drawing.Size(82, 32);
+            this.labelResourceTitle.Size = new System.Drawing.Size(58, 30);
             this.labelResourceTitle.TabIndex = 47;
-            this.labelResourceTitle.Text = "Titre :";
+            this.labelResourceTitle.Text = "Titre";
             // 
             // richTextBoxDescription
             // 
-            this.richTextBoxDescription.BackColor = System.Drawing.Color.Gray;
+            this.richTextBoxDescription.BackColor = System.Drawing.Color.DarkGray;
             this.richTextBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBoxDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.richTextBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.richTextBoxDescription.ForeColor = System.Drawing.Color.White;
-            this.richTextBoxDescription.Location = new System.Drawing.Point(657, 248);
+            this.richTextBoxDescription.Location = new System.Drawing.Point(378, 427);
             this.richTextBoxDescription.Name = "richTextBoxDescription";
-            this.richTextBoxDescription.Size = new System.Drawing.Size(320, 272);
+            this.richTextBoxDescription.Size = new System.Drawing.Size(538, 150);
             this.richTextBoxDescription.TabIndex = 49;
             this.richTextBoxDescription.Text = "";
             // 
             // listBoxResources
             // 
-            this.listBoxResources.BackColor = System.Drawing.Color.Gray;
+            this.listBoxResources.BackColor = System.Drawing.Color.DarkGray;
             this.listBoxResources.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxResources.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxResources.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.listBoxResources.ForeColor = System.Drawing.Color.White;
             this.listBoxResources.FormattingEnabled = true;
-            this.listBoxResources.ItemHeight = 17;
-            this.listBoxResources.Location = new System.Drawing.Point(438, 248);
+            this.listBoxResources.ItemHeight = 25;
+            this.listBoxResources.Location = new System.Drawing.Point(150, 427);
             this.listBoxResources.Name = "listBoxResources";
-            this.listBoxResources.Size = new System.Drawing.Size(199, 272);
+            this.listBoxResources.Size = new System.Drawing.Size(199, 150);
             this.listBoxResources.TabIndex = 48;
             this.listBoxResources.SelectedIndexChanged += new System.EventHandler(this.listBoxResources_SelectedIndexChanged);
             // 
@@ -368,64 +371,70 @@
             // 
             this.labelShowDescription.AutoSize = true;
             this.labelShowDescription.BackColor = System.Drawing.Color.Transparent;
-            this.labelShowDescription.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelShowDescription.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelShowDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelShowDescription.Location = new System.Drawing.Point(651, 207);
+            this.labelShowDescription.Location = new System.Drawing.Point(373, 394);
             this.labelShowDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelShowDescription.Name = "labelShowDescription";
-            this.labelShowDescription.Size = new System.Drawing.Size(161, 32);
+            this.labelShowDescription.Size = new System.Drawing.Size(125, 30);
             this.labelShowDescription.TabIndex = 53;
-            this.labelShowDescription.Text = "Description :";
+            this.labelShowDescription.Text = "Description";
             // 
             // labelResources
             // 
             this.labelResources.AutoSize = true;
             this.labelResources.BackColor = System.Drawing.Color.Transparent;
-            this.labelResources.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelResources.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelResources.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelResources.Location = new System.Drawing.Point(432, 207);
+            this.labelResources.Location = new System.Drawing.Point(145, 394);
             this.labelResources.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelResources.Name = "labelResources";
-            this.labelResources.Size = new System.Drawing.Size(155, 32);
+            this.labelResources.Size = new System.Drawing.Size(119, 30);
             this.labelResources.TabIndex = 50;
-            this.labelResources.Text = "Ressources :";
+            this.labelResources.Text = "Ressources";
             // 
             // buttonAdd
             // 
+            this.buttonAdd.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAdd.BackgroundImage")));
+            this.buttonAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonAdd.FlatAppearance.BorderSize = 0;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.buttonAdd.Location = new System.Drawing.Point(150, 540);
+            this.buttonAdd.Location = new System.Drawing.Point(930, 350);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(265, 40);
+            this.buttonAdd.Size = new System.Drawing.Size(40, 40);
             this.buttonAdd.TabIndex = 54;
-            this.buttonAdd.Text = "Ajouter";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonRemove
             // 
+            this.buttonRemove.BackColor = System.Drawing.Color.Transparent;
+            this.buttonRemove.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRemove.BackgroundImage")));
+            this.buttonRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonRemove.FlatAppearance.BorderSize = 0;
             this.buttonRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRemove.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.buttonRemove.Location = new System.Drawing.Point(438, 540);
+            this.buttonRemove.Location = new System.Drawing.Point(930, 537);
             this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(539, 40);
+            this.buttonRemove.Size = new System.Drawing.Size(40, 40);
             this.buttonRemove.TabIndex = 55;
-            this.buttonRemove.Text = "Supprimer";
-            this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.UseVisualStyleBackColor = false;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
             // textBoxDescription
             // 
             this.textBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.textBoxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.textBoxDescription.Location = new System.Drawing.Point(149, 304);
+            this.textBoxDescription.Location = new System.Drawing.Point(150, 304);
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(265, 216);
+            this.textBoxDescription.Size = new System.Drawing.Size(767, 86);
             this.textBoxDescription.TabIndex = 56;
             // 
             // Form23

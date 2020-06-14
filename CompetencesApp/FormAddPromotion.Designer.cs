@@ -48,7 +48,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(676, 73);
+            this.panel2.Size = new System.Drawing.Size(676, 58);
             this.panel2.TabIndex = 21;
             // 
             // buttonClose
@@ -70,36 +70,39 @@
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelTitle.Location = new System.Drawing.Point(20, 12);
+            this.labelTitle.Location = new System.Drawing.Point(22, 12);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(368, 45);
+            this.labelTitle.Size = new System.Drawing.Size(281, 32);
             this.labelTitle.TabIndex = 27;
             this.labelTitle.Text = "Ajouter une promotion";
             // 
             // buttonAdd
             // 
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(93)))), ((int)(((byte)(93)))));
+            this.buttonAdd.FlatAppearance.BorderSize = 0;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.buttonAdd.Location = new System.Drawing.Point(28, 172);
+            this.buttonAdd.ForeColor = System.Drawing.Color.White;
+            this.buttonAdd.Location = new System.Drawing.Point(28, 180);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(620, 40);
             this.buttonAdd.TabIndex = 41;
             this.buttonAdd.Text = "Ajouter";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // textBoxNom
             // 
+            this.textBoxNom.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.textBoxNom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.textBoxNom.Location = new System.Drawing.Point(28, 124);
+            this.textBoxNom.Location = new System.Drawing.Point(28, 105);
             this.textBoxNom.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(260, 30);
+            this.textBoxNom.Size = new System.Drawing.Size(620, 23);
             this.textBoxNom.TabIndex = 40;
             // 
             // labelNom
@@ -108,12 +111,12 @@
             this.labelNom.BackColor = System.Drawing.Color.Transparent;
             this.labelNom.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelNom.Location = new System.Drawing.Point(23, 90);
+            this.labelNom.Location = new System.Drawing.Point(22, 71);
             this.labelNom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNom.Name = "labelNom";
-            this.labelNom.Size = new System.Drawing.Size(74, 30);
+            this.labelNom.Size = new System.Drawing.Size(62, 30);
             this.labelNom.TabIndex = 39;
-            this.labelNom.Text = "Nom :";
+            this.labelNom.Text = "Nom";
             // 
             // FormAddPromotion
             // 

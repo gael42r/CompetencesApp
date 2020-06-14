@@ -62,10 +62,10 @@ namespace CompetencesApp
             ShowListBox();
             currentWindow = 0;
             comboBoxPromotion.SelectedIndex = -1;
-            labelCombo.Text = "Promotion : "; // Je pense que c'est + pertinent de changer le nom ici car ça ne change jamais de pos
+            labelCombo.Text = "Promotion"; // Je pense que c'est + pertinent de changer le nom ici car ça ne change jamais de pos
 
-            label1.Text = "Élèves  :";
-            label2.Text = "Élèves appartenant à la promotion :";
+            label1.Text = "Élèves";
+            label2.Text = "Élèves appartenant à la promotion";
         }
 
         private void ShowPromotionCompetenceBlock()
@@ -75,10 +75,10 @@ namespace CompetencesApp
             ShowListBox();
             currentWindow = 4;
             comboBoxPromotion.SelectedIndex = -1;
-            labelCombo.Text = "Promotion : ";
+            labelCombo.Text = "Promotion";
 
-            label1.Text = "Blocs de compétences  :";
-            label2.Text = "Blocs de compétences appartenant à la promotion :";
+            label1.Text = "Blocs de compétences";
+            label2.Text = "Blocs de compétences appartenant à la promotion";
         }
         private void ShowUsers()
         {
@@ -86,10 +86,10 @@ namespace CompetencesApp
             comboBoxUsers.Show();
             currentWindow = 1;
             comboBoxUsers.SelectedIndex = -1;
-            labelCombo.Text = "Utilisateurs : ";
+            labelCombo.Text = "Utilisateurs";
 
-            label1.Text = "Compétences :";
-            label2.Text = "Compétences du professeur :";
+            label1.Text = "Compétences";
+            label2.Text = "Compétences du professeur";
         }
 
         private void ShowCompetenceBlocks()
@@ -100,9 +100,9 @@ namespace CompetencesApp
 
             comboBoxCompetenceBlock.SelectedIndex = -1;
 
-            labelCombo.Text = "Blocs de compétence : ";
-            label1.Text = "Compétences :";
-            label2.Text = "Compétences appartenant au bloc :";
+            labelCombo.Text = "Blocs de compétence";
+            label1.Text = "Compétences";
+            label2.Text = "Compétences appartenant au bloc";
 
         }
 
@@ -113,7 +113,7 @@ namespace CompetencesApp
             
 
             currentWindow = 3;
-            labelCombo.Text = "Compétences : ";
+            labelCombo.Text = "Compétences";
         }
 
         private void ShowProfile()

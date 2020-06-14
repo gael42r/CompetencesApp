@@ -160,26 +160,26 @@
             // 
             this.labelResources.AutoSize = true;
             this.labelResources.BackColor = System.Drawing.Color.Transparent;
-            this.labelResources.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelResources.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelResources.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelResources.Location = new System.Drawing.Point(141, 69);
+            this.labelResources.Location = new System.Drawing.Point(142, 71);
             this.labelResources.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelResources.Name = "labelResources";
-            this.labelResources.Size = new System.Drawing.Size(155, 32);
+            this.labelResources.Size = new System.Drawing.Size(119, 30);
             this.labelResources.TabIndex = 35;
-            this.labelResources.Text = "Ressources :";
+            this.labelResources.Text = "Ressources";
             // 
             // listBoxResources
             // 
             this.listBoxResources.BackColor = System.Drawing.Color.Gray;
             this.listBoxResources.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxResources.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxResources.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.listBoxResources.ForeColor = System.Drawing.Color.White;
             this.listBoxResources.FormattingEnabled = true;
-            this.listBoxResources.ItemHeight = 17;
-            this.listBoxResources.Location = new System.Drawing.Point(147, 124);
+            this.listBoxResources.ItemHeight = 25;
+            this.listBoxResources.Location = new System.Drawing.Point(147, 102);
             this.listBoxResources.Name = "listBoxResources";
-            this.listBoxResources.Size = new System.Drawing.Size(187, 323);
+            this.listBoxResources.Size = new System.Drawing.Size(187, 350);
             this.listBoxResources.TabIndex = 36;
             this.listBoxResources.SelectedIndexChanged += new System.EventHandler(this.listBoxResources_SelectedIndexChanged);
             // 
@@ -198,12 +198,12 @@
             // 
             this.labelEvaluationStudent.AutoSize = true;
             this.labelEvaluationStudent.BackColor = System.Drawing.Color.Transparent;
-            this.labelEvaluationStudent.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEvaluationStudent.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelEvaluationStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelEvaluationStudent.Location = new System.Drawing.Point(141, 69);
+            this.labelEvaluationStudent.Location = new System.Drawing.Point(142, 71);
             this.labelEvaluationStudent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEvaluationStudent.Name = "labelEvaluationStudent";
-            this.labelEvaluationStudent.Size = new System.Drawing.Size(88, 32);
+            this.labelEvaluationStudent.Size = new System.Drawing.Size(75, 30);
             this.labelEvaluationStudent.TabIndex = 14;
             this.labelEvaluationStudent.Text = "Elève :";
             // 
@@ -211,12 +211,12 @@
             // 
             this.labelEvaluationNumberStudent.AutoSize = true;
             this.labelEvaluationNumberStudent.BackColor = System.Drawing.Color.Transparent;
-            this.labelEvaluationNumberStudent.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEvaluationNumberStudent.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelEvaluationNumberStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelEvaluationNumberStudent.Location = new System.Drawing.Point(233, 69);
+            this.labelEvaluationNumberStudent.Location = new System.Drawing.Point(221, 71);
             this.labelEvaluationNumberStudent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEvaluationNumberStudent.Name = "labelEvaluationNumberStudent";
-            this.labelEvaluationNumberStudent.Size = new System.Drawing.Size(50, 32);
+            this.labelEvaluationNumberStudent.Size = new System.Drawing.Size(43, 30);
             this.labelEvaluationNumberStudent.TabIndex = 23;
             this.labelEvaluationNumberStudent.Text = "0%";
             // 
@@ -224,51 +224,53 @@
             // 
             this.labelProof.AutoSize = true;
             this.labelProof.BackColor = System.Drawing.Color.Transparent;
-            this.labelProof.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProof.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelProof.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelProof.Location = new System.Drawing.Point(141, 175);
+            this.labelProof.Location = new System.Drawing.Point(142, 178);
             this.labelProof.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelProof.Name = "labelProof";
-            this.labelProof.Size = new System.Drawing.Size(251, 32);
+            this.labelProof.Size = new System.Drawing.Size(202, 30);
             this.labelProof.TabIndex = 24;
-            this.labelProof.Text = "Preuve(s) de travail :";
+            this.labelProof.Text = "Preuve(s) de travail";
             // 
             // listBoxProof
             // 
             this.listBoxProof.BackColor = System.Drawing.Color.Gray;
             this.listBoxProof.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxProof.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxProof.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.listBoxProof.ForeColor = System.Drawing.Color.White;
             this.listBoxProof.FormattingEnabled = true;
-            this.listBoxProof.ItemHeight = 17;
+            this.listBoxProof.ItemHeight = 25;
             this.listBoxProof.Location = new System.Drawing.Point(147, 254);
             this.listBoxProof.Name = "listBoxProof";
-            this.listBoxProof.Size = new System.Drawing.Size(527, 136);
+            this.listBoxProof.Size = new System.Drawing.Size(527, 125);
             this.listBoxProof.TabIndex = 33;
             // 
             // buttonSave
             // 
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(93)))), ((int)(((byte)(93)))));
+            this.buttonSave.FlatAppearance.BorderSize = 0;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.buttonSave.Location = new System.Drawing.Point(147, 411);
+            this.buttonSave.ForeColor = System.Drawing.Color.White;
+            this.buttonSave.Location = new System.Drawing.Point(147, 412);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(256, 40);
             this.buttonSave.TabIndex = 37;
             this.buttonSave.Text = "Sauvegarder";
-            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // labelEvaluationNumberTeacher
             // 
             this.labelEvaluationNumberTeacher.AutoSize = true;
             this.labelEvaluationNumberTeacher.BackColor = System.Drawing.Color.Transparent;
-            this.labelEvaluationNumberTeacher.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEvaluationNumberTeacher.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelEvaluationNumberTeacher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelEvaluationNumberTeacher.Location = new System.Drawing.Point(603, 69);
+            this.labelEvaluationNumberTeacher.Location = new System.Drawing.Point(618, 71);
             this.labelEvaluationNumberTeacher.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEvaluationNumberTeacher.Name = "labelEvaluationNumberTeacher";
-            this.labelEvaluationNumberTeacher.Size = new System.Drawing.Size(50, 32);
+            this.labelEvaluationNumberTeacher.Size = new System.Drawing.Size(43, 30);
             this.labelEvaluationNumberTeacher.TabIndex = 41;
             this.labelEvaluationNumberTeacher.Text = "0%";
             // 
@@ -276,61 +278,65 @@
             // 
             this.labelEvaluationTeacher.AutoSize = true;
             this.labelEvaluationTeacher.BackColor = System.Drawing.Color.Transparent;
-            this.labelEvaluationTeacher.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEvaluationTeacher.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelEvaluationTeacher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelEvaluationTeacher.Location = new System.Drawing.Point(448, 69);
+            this.labelEvaluationTeacher.Location = new System.Drawing.Point(486, 71);
             this.labelEvaluationTeacher.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEvaluationTeacher.Name = "labelEvaluationTeacher";
-            this.labelEvaluationTeacher.Size = new System.Drawing.Size(151, 32);
+            this.labelEvaluationTeacher.Size = new System.Drawing.Size(128, 30);
             this.labelEvaluationTeacher.TabIndex = 39;
             this.labelEvaluationTeacher.Text = "Professeur :";
             // 
             // buttonAddProof
             // 
+            this.buttonAddProof.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAddProof.BackgroundImage")));
+            this.buttonAddProof.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonAddProof.FlatAppearance.BorderSize = 0;
             this.buttonAddProof.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddProof.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonAddProof.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.buttonAddProof.Location = new System.Drawing.Point(413, 175);
+            this.buttonAddProof.Location = new System.Drawing.Point(588, 175);
             this.buttonAddProof.Name = "buttonAddProof";
-            this.buttonAddProof.Size = new System.Drawing.Size(127, 40);
+            this.buttonAddProof.Size = new System.Drawing.Size(40, 40);
             this.buttonAddProof.TabIndex = 38;
-            this.buttonAddProof.Text = "Ajouter";
             this.buttonAddProof.UseVisualStyleBackColor = true;
             this.buttonAddProof.Click += new System.EventHandler(this.buttonAddProof_Click);
             // 
             // buttonRemoveProof
             // 
+            this.buttonRemoveProof.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRemoveProof.BackgroundImage")));
+            this.buttonRemoveProof.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonRemoveProof.FlatAppearance.BorderSize = 0;
             this.buttonRemoveProof.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRemoveProof.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonRemoveProof.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.buttonRemoveProof.Location = new System.Drawing.Point(547, 175);
+            this.buttonRemoveProof.Location = new System.Drawing.Point(634, 175);
             this.buttonRemoveProof.Name = "buttonRemoveProof";
-            this.buttonRemoveProof.Size = new System.Drawing.Size(127, 40);
+            this.buttonRemoveProof.Size = new System.Drawing.Size(40, 40);
             this.buttonRemoveProof.TabIndex = 42;
-            this.buttonRemoveProof.Text = "Supprimer";
             this.buttonRemoveProof.UseVisualStyleBackColor = true;
             this.buttonRemoveProof.Click += new System.EventHandler(this.buttonRemoveProof_Click);
             // 
             // textBoxProof
             // 
             this.textBoxProof.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProof.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxProof.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.textBoxProof.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.textBoxProof.Location = new System.Drawing.Point(147, 222);
             this.textBoxProof.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxProof.Name = "textBoxProof";
-            this.textBoxProof.Size = new System.Drawing.Size(527, 18);
+            this.textBoxProof.Size = new System.Drawing.Size(527, 23);
             this.textBoxProof.TabIndex = 43;
             // 
             // richTextBoxDescription
             // 
             this.richTextBoxDescription.BackColor = System.Drawing.Color.Gray;
             this.richTextBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBoxDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.richTextBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.richTextBoxDescription.ForeColor = System.Drawing.Color.White;
-            this.richTextBoxDescription.Location = new System.Drawing.Point(354, 124);
+            this.richTextBoxDescription.Location = new System.Drawing.Point(354, 102);
             this.richTextBoxDescription.Name = "richTextBoxDescription";
-            this.richTextBoxDescription.Size = new System.Drawing.Size(320, 323);
+            this.richTextBoxDescription.Size = new System.Drawing.Size(320, 350);
             this.richTextBoxDescription.TabIndex = 44;
             this.richTextBoxDescription.Text = "";
             // 
@@ -338,22 +344,23 @@
             // 
             this.labelDescription.AutoSize = true;
             this.labelDescription.BackColor = System.Drawing.Color.Transparent;
-            this.labelDescription.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescription.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.labelDescription.Location = new System.Drawing.Point(348, 69);
+            this.labelDescription.Location = new System.Drawing.Point(349, 71);
             this.labelDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(161, 32);
+            this.labelDescription.Size = new System.Drawing.Size(125, 30);
             this.labelDescription.TabIndex = 45;
-            this.labelDescription.Text = "Description :";
+            this.labelDescription.Text = "Description";
             // 
             // buttonValidCompetence
             // 
             this.buttonValidCompetence.BackColor = System.Drawing.Color.Peru;
+            this.buttonValidCompetence.FlatAppearance.BorderSize = 0;
             this.buttonValidCompetence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonValidCompetence.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonValidCompetence.ForeColor = System.Drawing.Color.White;
-            this.buttonValidCompetence.Location = new System.Drawing.Point(418, 411);
+            this.buttonValidCompetence.Location = new System.Drawing.Point(418, 412);
             this.buttonValidCompetence.Name = "buttonValidCompetence";
             this.buttonValidCompetence.Size = new System.Drawing.Size(256, 40);
             this.buttonValidCompetence.TabIndex = 46;
@@ -369,12 +376,12 @@
             this.ClientSize = new System.Drawing.Size(700, 464);
             this.Controls.Add(this.buttonValidCompetence);
             this.Controls.Add(this.labelDescription);
+            this.Controls.Add(this.listBoxResources);
+            this.Controls.Add(this.labelResources);
             this.Controls.Add(this.richTextBoxDescription);
             this.Controls.Add(this.textBoxProof);
             this.Controls.Add(this.buttonRemoveProof);
-            this.Controls.Add(this.labelResources);
             this.Controls.Add(this.labelEvaluationNumberTeacher);
-            this.Controls.Add(this.listBoxResources);
             this.Controls.Add(this.labelEvaluationTeacher);
             this.Controls.Add(this.buttonAddProof);
             this.Controls.Add(this.buttonSave);
