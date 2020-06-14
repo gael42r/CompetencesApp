@@ -205,6 +205,7 @@
             this.buttonMinimize.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMinimize.BackgroundImage")));
             this.buttonMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonMinimize.FlatAppearance.BorderSize = 0;
+            this.buttonMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimize.Location = new System.Drawing.Point(810, 12);
             this.buttonMinimize.Name = "buttonMinimize";
@@ -220,6 +221,7 @@
             this.buttonClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonClose.BackgroundImage")));
             this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Location = new System.Drawing.Point(841, 12);
             this.buttonClose.Name = "buttonClose";
@@ -337,6 +339,7 @@
             this.addButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addButton.BackgroundImage")));
             this.addButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.addButton.FlatAppearance.BorderSize = 0;
+            this.addButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.addButton.ForeColor = System.Drawing.SystemColors.Control;
@@ -353,6 +356,7 @@
             this.deleteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("deleteButton.BackgroundImage")));
             this.deleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.deleteButton.FlatAppearance.BorderSize = 0;
+            this.deleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.deleteButton.Location = new System.Drawing.Point(930, 162);
@@ -407,6 +411,7 @@
             this.addUserPromotionButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addUserPromotionButton.BackgroundImage")));
             this.addUserPromotionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.addUserPromotionButton.FlatAppearance.BorderSize = 0;
+            this.addUserPromotionButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.addUserPromotionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addUserPromotionButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.addUserPromotionButton.Location = new System.Drawing.Point(543, 302);
@@ -422,6 +427,7 @@
             this.removeUserPromotionButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("removeUserPromotionButton.BackgroundImage")));
             this.removeUserPromotionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.removeUserPromotionButton.FlatAppearance.BorderSize = 0;
+            this.removeUserPromotionButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.removeUserPromotionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeUserPromotionButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.removeUserPromotionButton.Location = new System.Drawing.Point(543, 348);

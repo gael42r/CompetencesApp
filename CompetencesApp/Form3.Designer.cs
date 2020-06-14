@@ -148,6 +148,7 @@
             this.buttonClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonClose.BackgroundImage")));
             this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Location = new System.Drawing.Point(663, 12);
             this.buttonClose.Name = "buttonClose";
@@ -173,13 +174,13 @@
             // 
             this.listBoxResources.BackColor = System.Drawing.Color.Gray;
             this.listBoxResources.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxResources.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.listBoxResources.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.listBoxResources.ForeColor = System.Drawing.Color.White;
             this.listBoxResources.FormattingEnabled = true;
-            this.listBoxResources.ItemHeight = 25;
+            this.listBoxResources.ItemHeight = 21;
             this.listBoxResources.Location = new System.Drawing.Point(147, 102);
             this.listBoxResources.Name = "listBoxResources";
-            this.listBoxResources.Size = new System.Drawing.Size(187, 350);
+            this.listBoxResources.Size = new System.Drawing.Size(187, 336);
             this.listBoxResources.TabIndex = 36;
             this.listBoxResources.SelectedIndexChanged += new System.EventHandler(this.listBoxResources_SelectedIndexChanged);
             // 
@@ -237,13 +238,13 @@
             // 
             this.listBoxProof.BackColor = System.Drawing.Color.Gray;
             this.listBoxProof.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxProof.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.listBoxProof.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.listBoxProof.ForeColor = System.Drawing.Color.White;
             this.listBoxProof.FormattingEnabled = true;
-            this.listBoxProof.ItemHeight = 25;
+            this.listBoxProof.ItemHeight = 21;
             this.listBoxProof.Location = new System.Drawing.Point(147, 254);
             this.listBoxProof.Name = "listBoxProof";
-            this.listBoxProof.Size = new System.Drawing.Size(527, 125);
+            this.listBoxProof.Size = new System.Drawing.Size(527, 105);
             this.listBoxProof.TabIndex = 33;
             // 
             // buttonSave
@@ -292,6 +293,7 @@
             this.buttonAddProof.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAddProof.BackgroundImage")));
             this.buttonAddProof.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonAddProof.FlatAppearance.BorderSize = 0;
+            this.buttonAddProof.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.buttonAddProof.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddProof.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonAddProof.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
@@ -307,6 +309,7 @@
             this.buttonRemoveProof.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRemoveProof.BackgroundImage")));
             this.buttonRemoveProof.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonRemoveProof.FlatAppearance.BorderSize = 0;
+            this.buttonRemoveProof.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.buttonRemoveProof.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRemoveProof.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.buttonRemoveProof.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
@@ -320,23 +323,23 @@
             // textBoxProof
             // 
             this.textBoxProof.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProof.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBoxProof.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.textBoxProof.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.textBoxProof.Location = new System.Drawing.Point(147, 222);
             this.textBoxProof.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxProof.Name = "textBoxProof";
-            this.textBoxProof.Size = new System.Drawing.Size(527, 23);
+            this.textBoxProof.Size = new System.Drawing.Size(527, 22);
             this.textBoxProof.TabIndex = 43;
             // 
             // richTextBoxDescription
             // 
             this.richTextBoxDescription.BackColor = System.Drawing.Color.Gray;
             this.richTextBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.richTextBoxDescription.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.richTextBoxDescription.ForeColor = System.Drawing.Color.White;
             this.richTextBoxDescription.Location = new System.Drawing.Point(354, 102);
             this.richTextBoxDescription.Name = "richTextBoxDescription";
-            this.richTextBoxDescription.Size = new System.Drawing.Size(320, 350);
+            this.richTextBoxDescription.Size = new System.Drawing.Size(320, 336);
             this.richTextBoxDescription.TabIndex = 44;
             this.richTextBoxDescription.Text = "";
             // 
