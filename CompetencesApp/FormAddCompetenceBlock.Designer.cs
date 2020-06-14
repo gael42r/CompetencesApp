@@ -84,7 +84,7 @@
             // textBoxDescription
             // 
             this.textBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBoxDescription.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.textBoxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.textBoxDescription.Location = new System.Drawing.Point(28, 167);
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
@@ -124,12 +124,12 @@
             // textBoxNom
             // 
             this.textBoxNom.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBoxNom.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.textBoxNom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.textBoxNom.Location = new System.Drawing.Point(28, 105);
             this.textBoxNom.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(620, 23);
+            this.textBoxNom.Size = new System.Drawing.Size(620, 22);
             this.textBoxNom.TabIndex = 59;
             // 
             // labelNom

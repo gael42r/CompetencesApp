@@ -116,23 +116,23 @@
             // textBoxPrenom
             // 
             this.textBoxPrenom.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBoxPrenom.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.textBoxPrenom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.textBoxPrenom.Location = new System.Drawing.Point(28, 105);
             this.textBoxPrenom.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxPrenom.Name = "textBoxPrenom";
-            this.textBoxPrenom.Size = new System.Drawing.Size(260, 23);
+            this.textBoxPrenom.Size = new System.Drawing.Size(260, 22);
             this.textBoxPrenom.TabIndex = 30;
             // 
             // textBoxNom
             // 
             this.textBoxNom.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBoxNom.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.textBoxNom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.textBoxNom.Location = new System.Drawing.Point(28, 167);
             this.textBoxNom.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(260, 23);
+            this.textBoxNom.Size = new System.Drawing.Size(260, 22);
             this.textBoxNom.TabIndex = 31;
             // 
             // labelUsername
@@ -151,12 +151,12 @@
             // textBoxUsername
             // 
             this.textBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBoxUsername.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.textBoxUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.textBoxUsername.Location = new System.Drawing.Point(388, 105);
             this.textBoxUsername.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(260, 23);
+            this.textBoxUsername.Size = new System.Drawing.Size(260, 22);
             this.textBoxUsername.TabIndex = 33;
             // 
             // labelPassword
@@ -175,12 +175,12 @@
             // textBoxPassword
             // 
             this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.textBoxPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.textBoxPassword.Location = new System.Drawing.Point(387, 166);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(260, 23);
+            this.textBoxPassword.Size = new System.Drawing.Size(260, 22);
             this.textBoxPassword.TabIndex = 35;
             // 
             // buttonAdd
@@ -188,7 +188,7 @@
             this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(93)))), ((int)(((byte)(93)))));
             this.buttonAdd.FlatAppearance.BorderSize = 0;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.buttonAdd.ForeColor = System.Drawing.Color.White;
             this.buttonAdd.Location = new System.Drawing.Point(28, 303);
             this.buttonAdd.Name = "buttonAdd";
@@ -214,7 +214,7 @@
             // comboBoxStatut
             // 
             this.comboBoxStatut.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxStatut.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.comboBoxStatut.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.comboBoxStatut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.comboBoxStatut.FormattingEnabled = true;
             this.comboBoxStatut.Items.AddRange(new object[] {
@@ -223,7 +223,7 @@
             "Administrateur"});
             this.comboBoxStatut.Location = new System.Drawing.Point(28, 227);
             this.comboBoxStatut.Name = "comboBoxStatut";
-            this.comboBoxStatut.Size = new System.Drawing.Size(260, 33);
+            this.comboBoxStatut.Size = new System.Drawing.Size(260, 29);
             this.comboBoxStatut.TabIndex = 40;
             // 
             // FormAddUser

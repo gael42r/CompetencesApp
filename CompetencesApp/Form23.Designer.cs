@@ -213,12 +213,12 @@
             // comboBoxCompetences
             // 
             this.comboBoxCompetences.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCompetences.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.comboBoxCompetences.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.comboBoxCompetences.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.comboBoxCompetences.FormattingEnabled = true;
             this.comboBoxCompetences.Location = new System.Drawing.Point(150, 169);
             this.comboBoxCompetences.Name = "comboBoxCompetences";
-            this.comboBoxCompetences.Size = new System.Drawing.Size(827, 33);
+            this.comboBoxCompetences.Size = new System.Drawing.Size(820, 29);
             this.comboBoxCompetences.TabIndex = 26;
             this.comboBoxCompetences.SelectedIndexChanged += new System.EventHandler(this.comboBoxCompetences_SelectedIndexChanged);
             // 
@@ -226,13 +226,13 @@
             // 
             this.listBoxStudent.BackColor = System.Drawing.Color.DarkGray;
             this.listBoxStudent.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.listBoxStudent.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.listBoxStudent.ForeColor = System.Drawing.Color.White;
             this.listBoxStudent.FormattingEnabled = true;
-            this.listBoxStudent.ItemHeight = 25;
+            this.listBoxStudent.ItemHeight = 21;
             this.listBoxStudent.Location = new System.Drawing.Point(150, 243);
             this.listBoxStudent.Name = "listBoxStudent";
-            this.listBoxStudent.Size = new System.Drawing.Size(820, 275);
+            this.listBoxStudent.Size = new System.Drawing.Size(820, 273);
             this.listBoxStudent.TabIndex = 33;
             // 
             // buttonValider
@@ -307,12 +307,12 @@
             // textBoxResource
             // 
             this.textBoxResource.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBoxResource.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.textBoxResource.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.textBoxResource.Location = new System.Drawing.Point(150, 243);
             this.textBoxResource.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxResource.Name = "textBoxResource";
-            this.textBoxResource.Size = new System.Drawing.Size(766, 23);
+            this.textBoxResource.Size = new System.Drawing.Size(766, 22);
             this.textBoxResource.TabIndex = 44;
             // 
             // labelDescription
@@ -345,7 +345,7 @@
             // 
             this.richTextBoxDescription.BackColor = System.Drawing.Color.DarkGray;
             this.richTextBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.richTextBoxDescription.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.richTextBoxDescription.ForeColor = System.Drawing.Color.White;
             this.richTextBoxDescription.Location = new System.Drawing.Point(378, 427);
             this.richTextBoxDescription.Name = "richTextBoxDescription";
@@ -357,13 +357,13 @@
             // 
             this.listBoxResources.BackColor = System.Drawing.Color.DarkGray;
             this.listBoxResources.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxResources.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.listBoxResources.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.listBoxResources.ForeColor = System.Drawing.Color.White;
             this.listBoxResources.FormattingEnabled = true;
-            this.listBoxResources.ItemHeight = 25;
+            this.listBoxResources.ItemHeight = 21;
             this.listBoxResources.Location = new System.Drawing.Point(150, 427);
             this.listBoxResources.Name = "listBoxResources";
-            this.listBoxResources.Size = new System.Drawing.Size(199, 150);
+            this.listBoxResources.Size = new System.Drawing.Size(199, 147);
             this.listBoxResources.TabIndex = 48;
             this.listBoxResources.SelectedIndexChanged += new System.EventHandler(this.listBoxResources_SelectedIndexChanged);
             // 
@@ -428,7 +428,7 @@
             // textBoxDescription
             // 
             this.textBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBoxDescription.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.textBoxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.textBoxDescription.Location = new System.Drawing.Point(150, 304);
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);

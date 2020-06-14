@@ -271,50 +271,50 @@
             // 
             // comboBoxCompetences
             // 
-            this.comboBoxCompetences.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.comboBoxCompetences.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxCompetences.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCompetences.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.comboBoxCompetences.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.comboBoxCompetences.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.comboBoxCompetences.FormattingEnabled = true;
             this.comboBoxCompetences.Location = new System.Drawing.Point(150, 169);
             this.comboBoxCompetences.Name = "comboBoxCompetences";
-            this.comboBoxCompetences.Size = new System.Drawing.Size(696, 33);
+            this.comboBoxCompetences.Size = new System.Drawing.Size(696, 29);
             this.comboBoxCompetences.TabIndex = 36;
             this.comboBoxCompetences.SelectedIndexChanged += new System.EventHandler(this.comboBoxCompetences_SelectedIndexChanged);
             // 
             // comboBoxCompetenceBlock
             // 
             this.comboBoxCompetenceBlock.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCompetenceBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.comboBoxCompetenceBlock.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.comboBoxCompetenceBlock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.comboBoxCompetenceBlock.FormattingEnabled = true;
             this.comboBoxCompetenceBlock.Location = new System.Drawing.Point(150, 169);
             this.comboBoxCompetenceBlock.Name = "comboBoxCompetenceBlock";
-            this.comboBoxCompetenceBlock.Size = new System.Drawing.Size(696, 33);
+            this.comboBoxCompetenceBlock.Size = new System.Drawing.Size(696, 29);
             this.comboBoxCompetenceBlock.TabIndex = 30;
             this.comboBoxCompetenceBlock.SelectedIndexChanged += new System.EventHandler(this.comboBoxCompetenceBlock_SelectedIndexChanged);
             // 
             // comboBoxPromotion
             // 
             this.comboBoxPromotion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPromotion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.comboBoxPromotion.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.comboBoxPromotion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.comboBoxPromotion.FormattingEnabled = true;
             this.comboBoxPromotion.Location = new System.Drawing.Point(150, 169);
             this.comboBoxPromotion.Name = "comboBoxPromotion";
-            this.comboBoxPromotion.Size = new System.Drawing.Size(696, 33);
+            this.comboBoxPromotion.Size = new System.Drawing.Size(696, 29);
             this.comboBoxPromotion.TabIndex = 27;
             this.comboBoxPromotion.SelectedIndexChanged += new System.EventHandler(this.comboBoxPromotion_SelectedIndexChanged);
             // 
             // comboBoxUsers
             // 
             this.comboBoxUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.comboBoxUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.comboBoxUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.comboBoxUsers.FormattingEnabled = true;
             this.comboBoxUsers.Location = new System.Drawing.Point(150, 169);
             this.comboBoxUsers.Name = "comboBoxUsers";
-            this.comboBoxUsers.Size = new System.Drawing.Size(696, 33);
+            this.comboBoxUsers.Size = new System.Drawing.Size(696, 29);
             this.comboBoxUsers.TabIndex = 28;
             this.comboBoxUsers.SelectedIndexChanged += new System.EventHandler(this.comboBoxUsers_SelectedIndexChanged);
             // 
@@ -379,26 +379,26 @@
             // 
             this.listBoxNoPromotionUsers.BackColor = System.Drawing.Color.DarkGray;
             this.listBoxNoPromotionUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxNoPromotionUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.listBoxNoPromotionUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxNoPromotionUsers.ForeColor = System.Drawing.Color.White;
             this.listBoxNoPromotionUsers.FormattingEnabled = true;
-            this.listBoxNoPromotionUsers.ItemHeight = 25;
+            this.listBoxNoPromotionUsers.ItemHeight = 21;
             this.listBoxNoPromotionUsers.Location = new System.Drawing.Point(150, 243);
             this.listBoxNoPromotionUsers.Name = "listBoxNoPromotionUsers";
-            this.listBoxNoPromotionUsers.Size = new System.Drawing.Size(363, 275);
+            this.listBoxNoPromotionUsers.Size = new System.Drawing.Size(363, 273);
             this.listBoxNoPromotionUsers.TabIndex = 38;
             // 
             // listBoxPromotionUsers
             // 
             this.listBoxPromotionUsers.BackColor = System.Drawing.Color.DarkGray;
             this.listBoxPromotionUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxPromotionUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.listBoxPromotionUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.listBoxPromotionUsers.ForeColor = System.Drawing.Color.White;
             this.listBoxPromotionUsers.FormattingEnabled = true;
-            this.listBoxPromotionUsers.ItemHeight = 25;
+            this.listBoxPromotionUsers.ItemHeight = 21;
             this.listBoxPromotionUsers.Location = new System.Drawing.Point(607, 243);
             this.listBoxPromotionUsers.Name = "listBoxPromotionUsers";
-            this.listBoxPromotionUsers.Size = new System.Drawing.Size(363, 275);
+            this.listBoxPromotionUsers.Size = new System.Drawing.Size(363, 273);
             this.listBoxPromotionUsers.TabIndex = 39;
             // 
             // addUserPromotionButton

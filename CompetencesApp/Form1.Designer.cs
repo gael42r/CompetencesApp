@@ -55,23 +55,23 @@
             // textBoxUser
             // 
             this.textBoxUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBoxUser.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.textBoxUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.textBoxUser.Location = new System.Drawing.Point(510, 180);
             this.textBoxUser.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxUser.Name = "textBoxUser";
-            this.textBoxUser.Size = new System.Drawing.Size(260, 23);
+            this.textBoxUser.Size = new System.Drawing.Size(260, 22);
             this.textBoxUser.TabIndex = 1;
             // 
             // textBoxPassword
             // 
             this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.textBoxPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.textBoxPassword.Location = new System.Drawing.Point(510, 259);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(260, 23);
+            this.textBoxPassword.Size = new System.Drawing.Size(260, 22);
             this.textBoxPassword.TabIndex = 2;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
