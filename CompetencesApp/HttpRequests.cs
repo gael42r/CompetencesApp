@@ -14,9 +14,10 @@ namespace CompetencesApp
     class HttpRequests
     {
         public static HttpClient client = new HttpClient();
+        private static string host;
         public static async Task<List<Promotion>> GetPromotions()
         {
-            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/promotions");
+            var httpResponseMessage = await client.GetAsync("http://" + host + "/promotions");
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
@@ -29,7 +30,7 @@ namespace CompetencesApp
 
         public static async Task<List<User>> GetUsers()
         {
-            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/users");
+            var httpResponseMessage = await client.GetAsync("http://" + host + "/users");
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
@@ -37,7 +38,7 @@ namespace CompetencesApp
                 if (list == null) return new List<User>();
                 List<User> returnList = new List<User>();
 
-                list.ForEach(async(user) =>
+                list.ForEach(async (user) =>
                 {
                     if (user.isTeacher)
                     {
@@ -58,12 +59,12 @@ namespace CompetencesApp
         }
         public static async Task<List<Competence>> GetCompetences()
         {
-            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/competences");
+            var httpResponseMessage = await client.GetAsync("http://" + host + "/competences");
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
                 var list = await content.ReadAsAsync<List<Competence>>();
-                if(list == null) return new List<Competence>();
+                if (list == null) return new List<Competence>();
 
                 return list;
             }
@@ -73,7 +74,7 @@ namespace CompetencesApp
 
         public static async Task<List<CompetenceBlock>> GetCompetenceBlocks()
         {
-            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/competenceblocks");
+            var httpResponseMessage = await client.GetAsync("http://" + host + "/competenceblocks");
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
@@ -86,7 +87,7 @@ namespace CompetencesApp
         }
         public static async Task<List<Promotion>> GetUsersPromotionById(string id)
         {
-            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/users/" + id + "/promotions");
+            var httpResponseMessage = await client.GetAsync("http://" + host + "/users/" + id + "/promotions");
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
@@ -99,7 +100,7 @@ namespace CompetencesApp
 
         public static async Task<List<User>> GetAllUserByPromotionId(string id)
         {
-            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/promotions/" + id + "/users");
+            var httpResponseMessage = await client.GetAsync("http://" + host + "/promotions/" + id + "/users");
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
@@ -110,7 +111,7 @@ namespace CompetencesApp
             List<User> other_list = new List<User>();
             return other_list;
         }
-        
+
         public static async Task<Promotion> PatchPromotionUsers(string promotionId, List<User> users)
         {
 
@@ -126,7 +127,7 @@ namespace CompetencesApp
             });
 
 
-            var request = new HttpRequestMessage(HttpMethod.Put, "http://91.171.37.70:16384/promotions/" + promotionId +"/users");
+            var request = new HttpRequestMessage(HttpMethod.Put, "http://" + host + "/promotions/" + promotionId + "/users");
             var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
             request.Content = stringContent;
 
@@ -153,7 +154,7 @@ namespace CompetencesApp
             });
 
 
-            var request = new HttpRequestMessage(HttpMethod.Put, "http://91.171.37.70:16384/promotions/" + promotionId + "/competenceblocks");
+            var request = new HttpRequestMessage(HttpMethod.Put, "http://" + host + "/promotions/" + promotionId + "/competenceblocks");
             var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
             request.Content = stringContent;
 
@@ -179,7 +180,7 @@ namespace CompetencesApp
             });
 
 
-            var request = new HttpRequestMessage(HttpMethod.Put, "http://91.171.37.70:16384/competenceblocks/" + blockId + "/competences");
+            var request = new HttpRequestMessage(HttpMethod.Put, "http://" + host + "/competenceblocks/" + blockId + "/competences");
             var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
             request.Content = stringContent;
 
@@ -214,7 +215,7 @@ namespace CompetencesApp
             });
 
 
-            var request = new HttpRequestMessage(HttpMethod.Put, "http://91.171.37.70:16384/users/"+teacherId+"/teachercompetences");
+            var request = new HttpRequestMessage(HttpMethod.Put, "http://" + host + "/users/" + teacherId + "/teachercompetences");
             var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
             request.Content = stringContent;
 
@@ -228,7 +229,7 @@ namespace CompetencesApp
 
         public static async Task<List<UserCompetence>> GetUsersCompetencesById(string id)
         {
-            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/users/" + id + "/competences");
+            var httpResponseMessage = await client.GetAsync("http://" + host + "/users/" + id + "/competences");
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
@@ -241,7 +242,7 @@ namespace CompetencesApp
         }
         public static async Task<List<Competence>> GetAllTeacherCompetenceById(string id)
         {
-            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/users/" + id + "/teachercompetences");
+            var httpResponseMessage = await client.GetAsync("http://" + host + "/users/" + id + "/teachercompetences");
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
@@ -256,7 +257,7 @@ namespace CompetencesApp
 
         public static async Task<Competence> GetCompetenceById(string id)
         {
-            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/competences/" + id);
+            var httpResponseMessage = await client.GetAsync("http://" + host + "/competences/" + id);
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
@@ -269,7 +270,7 @@ namespace CompetencesApp
         }
         public static async Task<List<CompetenceBlock>> GetPromotionsCompetenceBlocksById(string id)
         {
-            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/promotions/" + id + "/competenceblocks");
+            var httpResponseMessage = await client.GetAsync("http://" + host + "/promotions/" + id + "/competenceblocks");
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
@@ -291,7 +292,7 @@ namespace CompetencesApp
 
         public static async Task<List<Competence>> GetCompetenceBlocksCompetencesById(string id)
         {
-            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/competenceblocks/" + id + "/competences");
+            var httpResponseMessage = await client.GetAsync("http://" + host + "/competenceblocks/" + id + "/competences");
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
@@ -304,7 +305,7 @@ namespace CompetencesApp
 
         public static async Task<List<UserCompetenceTeacher>> GetUserCompetenceTeacherById(string id)
         {
-            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/competences/" + id + "/usercompetences");
+            var httpResponseMessage = await client.GetAsync("http://" + host + "/competences/" + id + "/usercompetences");
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
@@ -322,7 +323,7 @@ namespace CompetencesApp
         //    list.Add(username);
         //    list.Add(password);
         //    HttpResponseMessage response = await client.PostAsJsonAsync(
-        //        "http://91.171.37.70:16384/login", list);
+        //        "http://" + host + "/login", list);
         //    response.EnsureSuccessStatusCode();
         //    Console.WriteLine(response.Content);
         //    var user = await response.Content.ReadAsAsync<User>();
@@ -340,7 +341,7 @@ namespace CompetencesApp
         //    list.Add(username);
         //    list.Add(password);
 
-        //    HttpResponseMessage response = await client.PostAsJsonAsync("http://91.171.37.70:16384/login", list);
+        //    HttpResponseMessage response = await client.PostAsJsonAsync("http://" + host + "/login", list);
         //    response.EnsureSuccessStatusCode();
 
         //    //Console.WriteLine(response.Content);
@@ -374,7 +375,7 @@ namespace CompetencesApp
                 username = username,
                 password = password
             });
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/login");
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://" + host + "/login");
             var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
             request.Content = stringContent;
 
@@ -389,7 +390,7 @@ namespace CompetencesApp
             var userJObject = await response.Content.ReadAsAsync<JObject>();
             //Console.WriteLine(((bool)user.GetValue("isAdmin"))?"VRAI":"FAUX") ;
 
-            var isAdmin   = false;
+            var isAdmin = false;
             var isTeacher = false;
             var competence = new List<string>();
             try
@@ -397,7 +398,7 @@ namespace CompetencesApp
                 isAdmin = (bool)userJObject.GetValue("isAdmin");
                 isTeacher = (bool)userJObject.GetValue("isTeacher");
             }
-            catch(Exception e)
+            catch (Exception e)
             {
             }
 
@@ -413,7 +414,7 @@ namespace CompetencesApp
                 user.users = await GetUsers();
                 user.promos = await GetPromotions();
 
-                return user; 
+                return user;
             }
             else if (isTeacher)
             {
@@ -444,7 +445,7 @@ namespace CompetencesApp
             {
                 competenceId = competenceid
             });
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/users/" + userid + "/competences");
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://" + host + "/users/" + userid + "/competences");
             var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
             request.Content = stringContent;
 
@@ -460,7 +461,7 @@ namespace CompetencesApp
 
         public static async Task<List<Document>> GetDocumentsByUserCompetenceId(string id)
         {
-            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/usercompetences/" + id + "/documents");
+            var httpResponseMessage = await client.GetAsync("http://" + host + "/usercompetences/" + id + "/documents");
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
@@ -472,7 +473,7 @@ namespace CompetencesApp
         }
 
         //PatchUserComp
-        public static async Task<UserCompetence> PatchUserCompetence(UserCompetence usercompetence,bool isTeacher)
+        public static async Task<UserCompetence> PatchUserCompetence(UserCompetence usercompetence, bool isTeacher)
         {
 
             string payload;
@@ -491,7 +492,7 @@ namespace CompetencesApp
                     userPercent = usercompetence.userPercent
                 });
             }
-            var request = new HttpRequestMessage(HttpMethod.Put, "http://91.171.37.70:16384/usercompetences/" + usercompetence._id);
+            var request = new HttpRequestMessage(HttpMethod.Put, "http://" + host + "/usercompetences/" + usercompetence._id);
             var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
             request.Content = stringContent;
 
@@ -511,7 +512,7 @@ namespace CompetencesApp
             {
                 link = link
             });
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/usercompetences/" + usercompetenceid + "/documents");
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://" + host + "/usercompetences/" + usercompetenceid + "/documents");
             var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
             request.Content = stringContent;
 
@@ -526,7 +527,7 @@ namespace CompetencesApp
 
         public static async void DeleteDocument(string usercompetenceid, string documentid)
         {
-            var request = new HttpRequestMessage(HttpMethod.Delete, "http://91.171.37.70:16384/usercompetences/" + usercompetenceid + "/documents/" + documentid);
+            var request = new HttpRequestMessage(HttpMethod.Delete, "http://" + host + "/usercompetences/" + usercompetenceid + "/documents/" + documentid);
 
 
             var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
@@ -539,7 +540,7 @@ namespace CompetencesApp
 
         public static async Task<List<Resource>> GetResourceByCompetenceId(string id)
         {
-            var httpResponseMessage = await client.GetAsync("http://91.171.37.70:16384/competences/" + id + "/ressources");
+            var httpResponseMessage = await client.GetAsync("http://" + host + "/competences/" + id + "/ressources");
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var content = httpResponseMessage.Content;
@@ -558,7 +559,7 @@ namespace CompetencesApp
                 title = title,
                 content = content,
             });
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/competences/" + compid + "/ressources");
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://" + host + "/competences/" + compid + "/ressources");
             var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
             request.Content = stringContent;
 
@@ -574,7 +575,7 @@ namespace CompetencesApp
 
         public static async Task<bool> DeleteRessource(string competenceid, string ressourceid)
         {
-            var request = new HttpRequestMessage(HttpMethod.Delete, "http://91.171.37.70:16384/competences/" + competenceid + "/ressources/" + ressourceid);
+            var request = new HttpRequestMessage(HttpMethod.Delete, "http://" + host + "/competences/" + competenceid + "/ressources/" + ressourceid);
 
 
             var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
@@ -592,7 +593,7 @@ namespace CompetencesApp
 
         public static async Task<bool> DeleteUser(string userId)
         {
-            var request = new HttpRequestMessage(HttpMethod.Delete, "http://91.171.37.70:16384/users/"+ userId);
+            var request = new HttpRequestMessage(HttpMethod.Delete, "http://" + host + "/users/" + userId);
 
 
             var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
@@ -610,7 +611,7 @@ namespace CompetencesApp
 
         public static async Task<bool> DeletePromotion(string id)
         {
-            var request = new HttpRequestMessage(HttpMethod.Delete, "http://91.171.37.70:16384/promotions/" + id);
+            var request = new HttpRequestMessage(HttpMethod.Delete, "http://" + host + "/promotions/" + id);
 
 
             var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
@@ -628,7 +629,7 @@ namespace CompetencesApp
 
         public static async Task<bool> DeleteCompetenceBlock(string id)
         {
-            var request = new HttpRequestMessage(HttpMethod.Delete, "http://91.171.37.70:16384/competenceblocks/" + id);
+            var request = new HttpRequestMessage(HttpMethod.Delete, "http://" + host + "/competenceblocks/" + id);
 
 
             var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
@@ -645,9 +646,9 @@ namespace CompetencesApp
         }
         public static async Task<bool> DeleteCompetence(string id)
         {
-            var request = new HttpRequestMessage(HttpMethod.Delete, "http://91.171.37.70:16384/competences/" + id);
+            var request = new HttpRequestMessage(HttpMethod.Delete, "http://" + host + "/competences/" + id);
 
-             
+
             var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
             try
             {
@@ -672,7 +673,7 @@ namespace CompetencesApp
                 isAdmin = isAdmin,
                 isTeacher = isTeacher
             });
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/users");
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://" + host + "/users");
             var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
             request.Content = stringContent;
 
@@ -691,7 +692,7 @@ namespace CompetencesApp
             {
                 name = name
             });
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/promotions");
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://" + host + "/promotions");
             var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
             request.Content = stringContent;
 
@@ -711,7 +712,7 @@ namespace CompetencesApp
                 name = name,
                 description = description
             });
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/competenceblocks");
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://" + host + "/competenceblocks");
             var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
             request.Content = stringContent;
 
@@ -731,7 +732,7 @@ namespace CompetencesApp
                 name = name,
                 description = description
             });
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://91.171.37.70:16384/competences");
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://" + host + "/competences");
             var stringContent = new StringContent(payload, Encoding.UTF8, "application/json");
             request.Content = stringContent;
 

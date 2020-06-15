@@ -187,8 +187,8 @@ namespace CompetencesApp
 
         private async void deleteButton_Click(object sender, EventArgs e)
         {
-            int selectedIndex;
-            bool success;
+            int selectedIndex = -1;
+            bool success = false;
             switch (this.currentWindow)
             {
                 case 0:
